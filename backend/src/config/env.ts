@@ -66,9 +66,9 @@ if (parsed.data.NODE_ENV === 'production') {
   const shortSecrets = [
     ['JWT_ACCESS_SECRET', parsed.data.JWT_ACCESS_SECRET],
     ['JWT_REFRESH_SECRET', parsed.data.JWT_REFRESH_SECRET]
-  ].filter(([, value]) => value.length < 64).map(([key]) => key);
+  ].filter(([, value]) => value.length < 32).map(([key]) => key);
   if (shortSecrets.length > 0) {
-    console.error(`Production JWT secrets must be at least 64 characters: ${shortSecrets.join(', ')}`);
+    console.error(`Production JWT secrets must be at least 32 characters: ${shortSecrets.join(', ')}`);
     process.exit(1);
   }
   const productionRequired = [

@@ -13,7 +13,7 @@ async function start(): Promise<void> {
   const app = createApp();
   const server = http.createServer(app);
 
-  server.listen(env.PORT, () => {
+  server.listen(env.PORT, '0.0.0.0', () => {
     logger.info('Ktux API listening', { port: env.PORT, environment: env.NODE_ENV });
   });
 
