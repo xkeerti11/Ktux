@@ -15,7 +15,7 @@
     "seed:admin": "tsx src/scripts/seedAdmin.ts"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": "22.x"
   },
   "dependencies": {
     "@sentry/node": "10.69.0",
