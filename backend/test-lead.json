@@ -1,0 +1,10 @@
+﻿{
+    "name":  "Test User",
+    "phone":  "+919876543210",
+    "serviceInterested":  [
+                              "website-development"
+                          ],
+    "message":  "This is a test message",
+    "email":  "test@example.com",
+    "budgetRange":  "50k-100k"
+}

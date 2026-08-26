@@ -1,0 +1,10 @@
+{
+  "info": { "name": "Ktux API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:5000/api/v1" }, { "key": "accessToken", "value": "" }],
+  "item": [
+    { "name": "Health", "request": { "method": "GET", "url": "{{baseUrl}}/../health" } },
+    { "name": "Create lead", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"serviceInterested\": [\"website-development\"],\n  \"source\": \"postman\"\n}" }, "url": "{{baseUrl}}/leads" } },
+    { "name": "Login", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"replace-me\"\n}" }, "url": "{{baseUrl}}/auth/login" } },
+    { "name": "List leads", "request": { "method": "GET", "header": [{ "key": "Authorization", "value": "Bearer {{accessToken}}" }], "url": "{{baseUrl}}/leads?page=1&limit=20" } }
+  ]
+}

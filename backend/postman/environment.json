@@ -1,0 +1,8 @@
+{
+  "name": "Ktux Local",
+  "values": [
+    { "key": "baseUrl", "value": "http://localhost:5000/api/v1", "enabled": true },
+    { "key": "accessToken", "value": "", "enabled": true },
+    { "key": "idempotencyKey", "value": "{{randomUUID}}", "enabled": true }
+  ]
+}
