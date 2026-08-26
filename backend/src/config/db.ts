@@ -14,7 +14,7 @@ try {
 }
 
 let isConnected = false;
-let memoryServer: import('mongodb-memory-server').MongoMemoryServer | undefined;
+let memoryServer: { getUri: () => string; stop: () => Promise<boolean | void> } | undefined;
 
 async function resolveSrvToDirectUri(srvUri: string): Promise<string | null> {
   try {
@@ -64,23 +64,31 @@ export async function connectDatabase(): Promise<boolean> {
       }
     }
 
-    logger.warn('MongoDB connection to MONGODB_URI failed. Attempting MongoMemoryServer fallback...', { error: err?.message });
-    try {
-      if (mongoose.connection.readyState !== 0) await mongoose.disconnect();
-      const { MongoMemoryServer } = await import('mongodb-memory-server');
-      memoryServer = await MongoMemoryServer.create();
-      const uri = memoryServer.getUri();
-      await mongoose.connect(uri);
-      isConnected = true;
-      logger.info('MongoMemoryServer fallback connected successfully!', { uri });
-      return true;
-    } catch (memErr: any) {
-      isConnected = false;
-      await mongoose.disconnect().catch(() => undefined);
-      logger.error('Failed to connect to MongoDB and MongoMemoryServer fallback', { error: memErr?.message });
-      logger.warn('Database-dependent features are disabled until MongoDB is available. Start MongoDB or configure a reachable MONGODB_URI.');
-      return false;
+    if (env.NODE_ENV !== 'production') {
+      logger.warn('MongoDB connection to MONGODB_URI failed. Attempting MongoMemoryServer fallback...', { error: err?.message });
+      try {
+        if (mongoose.connection.readyState !== 0) await mongoose.disconnect();
+        // @ts-ignore - dynamic development fallback only
+        const memModule = await import('' + 'mongodb-memory-server').catch(() => null);
+        if (memModule && memModule.MongoMemoryServer) {
+          const instance = await memModule.MongoMemoryServer.create();
+          memoryServer = instance;
+          const uri = instance.getUri();
+          await mongoose.connect(uri);
+          isConnected = true;
+          logger.info('MongoMemoryServer fallback connected successfully!', { uri });
+          return true;
+        }
+      } catch (memErr: any) {
+        logger.warn('MongoMemoryServer fallback skipped or unavailable', { error: memErr?.message });
+      }
     }
+
+    isConnected = false;
+    await mongoose.disconnect().catch(() => undefined);
+    logger.error('Failed to connect to MongoDB', { error: err?.message });
+    logger.warn('Database-dependent features are disabled until MongoDB is available. Configure a reachable MONGODB_URI.');
+    return false;
   }
 }
 
