@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "ES2023",
+    "target": "ES2022",
     "module": "CommonJS",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
@@ -11,8 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "noImplicitOverride": true,
-    "types": ["node"]
+    "noImplicitOverride": true
   },
   "include": ["src"]
 }
+
