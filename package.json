@@ -1,8 +1,13 @@
 {
   "name": "ktux-agency-monorepo",
   "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "build": "npm --prefix frontend run build",
-    "start": "npm --prefix backend start"
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd backend && npm start"
   }
 }
+
