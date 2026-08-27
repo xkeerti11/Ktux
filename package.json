@@ -1,0 +1,8 @@
+{
+  "name": "ktux-agency-monorepo",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start"
+  }
+}
