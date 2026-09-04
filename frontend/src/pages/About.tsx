@@ -54,8 +54,8 @@ export default function About() {
       <section
         style={{
           background: 'radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.05), transparent 45%), #050507',
-          paddingTop: 'clamp(140px, 18vw, 190px)',
-          paddingBottom: 'clamp(50px, 6vw, 80px)',
+          paddingTop: 'clamp(110px, 16vw, 170px)',
+          paddingBottom: 'clamp(40px, 6vw, 70px)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
           position: 'relative',
         }}
@@ -69,7 +69,7 @@ export default function About() {
             </span>
             <h1
               style={{
-                fontSize: 'clamp(38px, 6vw, 64px)',
+                fontSize: 'clamp(32px, 6vw, 64px)',
                 fontWeight: 900,
                 letterSpacing: '-0.04em',
                 lineHeight: 1.1,
@@ -83,7 +83,7 @@ export default function About() {
             <p
               style={{
                 color: '#8E8E93',
-                fontSize: 'clamp(16px, 2vw, 18px)',
+                fontSize: 'clamp(15px, 2vw, 18px)',
                 lineHeight: 1.7,
                 marginTop: 14,
                 maxWidth: 640,
@@ -91,7 +91,7 @@ export default function About() {
             >
               Two founders. Full AI stack. We take your business vision from zero to a fully deployed, high-converting digital system — personally.
             </p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', marginTop: 28 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginTop: 24 }}>
               <Link to="/book-consultation" className="button-white">
                 Book Free Consultation <ArrowUpRight size={14} />
               </Link>
@@ -104,12 +104,12 @@ export default function About() {
       </section>
 
       {/* ── 2. Key Stats Strip ── */}
-      <section style={{ background: '#07070A', padding: '50px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <section style={{ background: '#07070A', padding: 'clamp(36px, 5vw, 50px) 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="site-container" style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))', gap: 16 }}>
             {stats.map((s) => (
-              <div key={s.number} style={{ background: '#0C0C10', padding: 24, borderRadius: 20, border: '1px solid rgba(255,255,255,0.08)' }}>
-                <strong style={{ fontSize: 36, fontWeight: 900, color: '#FFFFFF', display: 'block' }}>{s.number}</strong>
+              <div key={s.number} style={{ background: '#0C0C10', padding: '20px 24px', borderRadius: 20, border: '1px solid rgba(255,255,255,0.08)' }}>
+                <strong style={{ fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: 900, color: '#FFFFFF', display: 'block' }}>{s.number}</strong>
                 <span style={{ color: '#8E8E93', fontSize: 13, marginTop: 4, display: 'block' }}>{s.label}</span>
               </div>
             ))}
@@ -118,21 +118,21 @@ export default function About() {
       </section>
 
       {/* ── 3. Origin & Ethos Stories ── */}
-      <section style={{ background: '#050507', padding: 'clamp(80px, 10vw, 120px) 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <section style={{ background: '#050507', padding: 'clamp(60px, 8vw, 120px) 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="site-container" style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 60 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(32px, 5vw, 60px)' }}>
             {story.map((st, i) => (
               <SectionReveal key={st.title} delay={i * 0.1}>
                 <div
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                    gap: 40,
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                    gap: 'clamp(24px, 4vw, 40px)',
                     alignItems: 'center',
                     background: '#0C0C10',
                     border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: 28,
-                    padding: 'clamp(28px, 4vw, 48px)',
+                    borderRadius: 24,
+                    padding: 'clamp(24px, 4vw, 48px)',
                   }}
                 >
                   <div>

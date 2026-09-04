@@ -84,8 +84,8 @@ export default function Portfolio() {
       <section
         style={{
           background: 'radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.05), transparent 45%), #050507',
-          paddingTop: 'clamp(140px, 18vw, 190px)',
-          paddingBottom: 'clamp(50px, 6vw, 80px)',
+          paddingTop: 'clamp(110px, 16vw, 170px)',
+          paddingBottom: 'clamp(40px, 6vw, 70px)',
           borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
           position: 'relative',
         }}
@@ -99,7 +99,7 @@ export default function Portfolio() {
             </span>
             <h1
               style={{
-                fontSize: 'clamp(38px, 6vw, 64px)',
+                fontSize: 'clamp(32px, 6vw, 64px)',
                 fontWeight: 900,
                 letterSpacing: '-0.04em',
                 lineHeight: 1.1,
@@ -112,7 +112,7 @@ export default function Portfolio() {
             <p
               style={{
                 color: '#8E8E93',
-                fontSize: 'clamp(16px, 2vw, 18px)',
+                fontSize: 'clamp(15px, 2vw, 18px)',
                 lineHeight: 1.7,
                 marginTop: 14,
                 maxWidth: 680,
@@ -125,7 +125,7 @@ export default function Portfolio() {
       </section>
 
       {/* ── 2. Filters & Search ── */}
-      <section style={{ background: '#050507', padding: '40px 0 100px' }}>
+      <section style={{ background: '#050507', padding: 'clamp(28px, 5vw, 40px) 0 clamp(60px, 8vw, 100px)' }}>
         <div className="site-container" style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div
             style={{
@@ -133,14 +133,14 @@ export default function Portfolio() {
               alignItems: 'center',
               justifyContent: 'space-between',
               flexWrap: 'wrap',
-              gap: 20,
-              marginBottom: 40,
-              paddingBottom: 24,
+              gap: 16,
+              marginBottom: 36,
+              paddingBottom: 20,
               borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
             }}
           >
             {/* Search Bar */}
-            <div style={{ flex: 1, minWidth: 260, maxWidth: 420 }}>
+            <div style={{ flex: '1 1 260px', maxWidth: 420, width: '100%' }}>
               <label
                 htmlFor="portfolio-search-input"
                 style={{
@@ -151,9 +151,10 @@ export default function Portfolio() {
                   display: 'flex',
                   alignItems: 'center',
                   gap: 10,
+                  width: '100%',
                 }}
               >
-                <Search size={16} style={{ color: '#8E8E93' }} />
+                <Search size={16} style={{ color: '#8E8E93', flexShrink: 0 }} />
                 <input
                   id="portfolio-search-input"
                   aria-label="Search projects by title, tech stack, or feature"
@@ -165,15 +166,15 @@ export default function Portfolio() {
                     background: 'transparent',
                     border: 'none',
                     outline: 'none',
-                    fontSize: 13,
+                    fontSize: 14,
                     width: '100%',
                   }}
                 />
               </label>
             </div>
 
-            {/* Category Filter Pills */}
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {/* Category Filter Pills with touch scrolling */}
+            <div className="mobile-scroll-row" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
               {categories.map((cat) => {
                 const isActive = category === cat;
                 return (
@@ -190,6 +191,8 @@ export default function Portfolio() {
                       borderRadius: 999,
                       cursor: 'pointer',
                       transition: 'all 0.2s ease',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
                     }}
                   >
                     {cat}

@@ -200,8 +200,8 @@ export default function Home() {
       <section
         style={{
           position: 'relative',
-          paddingTop: 'clamp(140px, 18vw, 190px)',
-          paddingBottom: 'clamp(60px, 8vw, 100px)',
+          paddingTop: 'clamp(110px, 16vw, 170px)',
+          paddingBottom: 'clamp(48px, 6vw, 80px)',
           overflow: 'hidden',
           background: 'radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.05), transparent 45%), #050507',
         }}
@@ -215,11 +215,11 @@ export default function Home() {
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
               alignItems: 'center',
-              gap: 48,
+              gap: 'clamp(28px, 5vw, 48px)',
             }}
           >
             {/* Left Hero Copy */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 22, maxWidth: 640 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20, maxWidth: 640 }}>
               {/* Top Announcement Pill */}
               <Link to="/services/ai-automation" className="talos-pill" style={{ alignSelf: 'flex-start' }}>
                 <span className="talos-pill-dot" />
@@ -230,7 +230,7 @@ export default function Home() {
               {/* High-Impact PRD Headline */}
               <h1
                 style={{
-                  fontSize: 'clamp(40px, 6vw, 68px)',
+                  fontSize: 'clamp(32px, 6.5vw, 68px)',
                   fontWeight: 900,
                   letterSpacing: '-0.04em',
                   lineHeight: 1.08,
@@ -243,7 +243,7 @@ export default function Home() {
               {/* Subheading from PRD */}
               <p
                 style={{
-                  fontSize: 'clamp(18px, 2.5vw, 22px)',
+                  fontSize: 'clamp(16px, 2.2vw, 22px)',
                   fontWeight: 700,
                   color: '#FFFFFF',
                   letterSpacing: '-0.02em',
@@ -265,7 +265,7 @@ export default function Home() {
               </p>
 
               {/* Dual Action Buttons */}
-              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 14, marginTop: 10 }}>
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 12, marginTop: 6 }}>
                 <Link to="/book-consultation" className="button-white">
                   Book Free Consultation <ArrowUpRight size={14} />
                 </Link>
@@ -281,9 +281,9 @@ export default function Home() {
                   display: 'flex',
                   flexWrap: 'wrap',
                   alignItems: 'center',
-                  gap: 20,
-                  marginTop: 18,
-                  paddingTop: 20,
+                  gap: 16,
+                  marginTop: 14,
+                  paddingTop: 18,
                   borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                   color: '#8E8E93',
                   fontSize: 13,
@@ -304,9 +304,12 @@ export default function Home() {
                 display: 'grid',
                 placeItems: 'center',
                 position: 'relative',
+                width: '100%',
+                maxWidth: 360,
+                margin: '0 auto',
               }}
             >
-              <ChromeStar size={360} />
+              <ChromeStar size={320} style={{ maxWidth: '100%', height: 'auto' }} />
             </div>
           </div>
 
@@ -522,7 +525,7 @@ export default function Home() {
               </div>
 
               {/* Metric Quick Pills */}
-              <div style={{ display: 'flex', gap: 12, marginBottom: 20 }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: 20 }}>
                 <div
                   style={{
                     background: '#121217',
@@ -530,6 +533,7 @@ export default function Home() {
                     borderRadius: 12,
                     padding: '8px 14px',
                     fontSize: 12,
+                    flex: '1 1 auto',
                   }}
                 >
                   <span style={{ color: '#8E8E93' }}>Avg Launch: </span>
@@ -542,6 +546,7 @@ export default function Home() {
                     borderRadius: 12,
                     padding: '8px 14px',
                     fontSize: 12,
+                    flex: '1 1 auto',
                   }}
                 >
                   <span style={{ color: '#8E8E93' }}>Load Time: </span>
@@ -606,9 +611,10 @@ export default function Home() {
                       color: '#E4E4E7',
                       fontSize: 12,
                       fontWeight: 600,
+                      flexWrap: 'wrap',
                     }}
                   >
-                    <Check size={14} style={{ color: '#22C55E' }} />
+                    <Check size={14} style={{ color: '#22C55E', flexShrink: 0 }} />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -620,7 +626,7 @@ export default function Home() {
               <span style={{ color: '#8E8E93', fontSize: 11, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                 Full-Stack Ecosystem
               </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginTop: 14, marginBottom: 16 }}>
+              <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 14, marginTop: 14, marginBottom: 16 }}>
                 <div
                   style={{
                     width: 44,
@@ -629,6 +635,7 @@ export default function Home() {
                     background: '#FFFFFF',
                     display: 'grid',
                     placeItems: 'center',
+                    flexShrink: 0,
                   }}
                 >
                   <Code2 size={24} color="#050507" />
@@ -728,35 +735,36 @@ export default function Home() {
               <p style={{ color: '#8E8E93', fontSize: 16, lineHeight: 1.7, maxWidth: 480 }}>
                 From local businesses to funded startups, we've helped digital brands achieve measurable revenue growth and automated scale in record time.
               </p>
-              <div style={{ display: 'flex', gap: 30, marginTop: 12 }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(16px, 4vw, 30px)', marginTop: 12 }}>
                 <div>
-                  <strong style={{ fontSize: 36, fontWeight: 900, color: '#FFFFFF', display: 'block' }}>300+</strong>
+                  <strong style={{ fontSize: 'clamp(28px, 5vw, 36px)', fontWeight: 900, color: '#FFFFFF', display: 'block' }}>300+</strong>
                   <span style={{ color: '#8E8E93', fontSize: 12 }}>Leads Generated</span>
                 </div>
                 <div>
-                  <strong style={{ fontSize: 36, fontWeight: 900, color: '#FFFFFF', display: 'block' }}>$50K+</strong>
+                  <strong style={{ fontSize: 'clamp(28px, 5vw, 36px)', fontWeight: 900, color: '#FFFFFF', display: 'block' }}>$50K+</strong>
                   <span style={{ color: '#8E8E93', fontSize: 12 }}>Revenue Impact</span>
                 </div>
                 <div>
-                  <strong style={{ fontSize: 36, fontWeight: 900, color: '#FFFFFF', display: 'block' }}>99.9%</strong>
+                  <strong style={{ fontSize: 'clamp(28px, 5vw, 36px)', fontWeight: 900, color: '#FFFFFF', display: 'block' }}>99.9%</strong>
                   <span style={{ color: '#8E8E93', fontSize: 12 }}>Uptime & Reliability</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Isometric Dark Mobile Phone Mockup */}
-            <div style={{ display: 'grid', placeItems: 'center' }}>
+            <div style={{ display: 'grid', placeItems: 'center', width: '100%', overflow: 'hidden' }}>
               <div
                 style={{
-                  width: 'min(100%, 340px)',
+                  width: 'min(100%, 320px)',
                   background: '#0E0E14',
-                  border: '4px solid #27272A',
-                  borderRadius: 36,
-                  padding: 20,
+                  border: '3px solid #27272A',
+                  borderRadius: 32,
+                  padding: 'clamp(14px, 3vw, 20px)',
                   boxShadow: '0 25px 60px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.1)',
                   position: 'relative',
-                  transform: 'rotate(-3deg) translateY(-8px)',
+                  transform: 'rotate(-2deg)',
                   transition: 'transform 0.3s ease',
+                  maxWidth: '100%',
                 }}
               >
                 {/* Phone Speaker Notch */}

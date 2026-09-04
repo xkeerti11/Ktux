@@ -143,16 +143,16 @@ export default function Pricing() {
       </Helmet>
 
       {/* ── Hero ── */}
-      <section className="pricing-page-hero" style={{ background: '#050507', paddingTop: 'clamp(120px, 15vw, 170px)' }}>
+      <section className="pricing-page-hero" style={{ background: '#050507', paddingTop: 'clamp(110px, 16vw, 170px)', paddingBottom: 'clamp(30px, 5vw, 60px)' }}>
         <div className="site-container" style={{ textAlign: 'center' }}>
           <SectionReveal>
             <span className="talos-pill" style={{ marginBottom: 16 }}>
               <span className="talos-pill-dot" /> Transparent Investment
             </span>
-            <h1 className="display" style={{ marginTop: 20, maxWidth: 800, marginInline: 'auto', color: '#FFFFFF', fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 900 }}>
+            <h1 className="display" style={{ marginTop: 20, maxWidth: 800, marginInline: 'auto', color: '#FFFFFF', fontSize: 'clamp(32px, 6vw, 64px)', fontWeight: 900 }}>
               Good work is an <br /><span style={{ color: '#E4E4E7' }}>operating asset.</span>
             </h1>
-            <p style={{ color: '#8E8E93', maxWidth: 520, margin: '20px auto 36px', fontSize: 16, lineHeight: 1.7 }}>
+            <p style={{ color: '#8E8E93', maxWidth: 520, margin: '16px auto 30px', fontSize: 16, lineHeight: 1.7 }}>
               Choose the level of partnership that matches your next chapter — then shape the details together.
             </p>
             {/* Billing toggle */}
@@ -164,9 +164,13 @@ export default function Pricing() {
                   background: !annual ? '#FFFFFF' : 'transparent',
                   color: !annual ? '#050507' : '#8E8E93',
                   borderRadius: 999,
-                  padding: '8px 16px',
+                  padding: '8px 18px',
                   fontWeight: 700,
-                  fontSize: 12,
+                  fontSize: 13,
+                  minHeight: 40,
+                  cursor: 'pointer',
+                  border: 'none',
+                  transition: 'all 0.2s',
                 }}
               >
                 Monthly
@@ -178,12 +182,16 @@ export default function Pricing() {
                   background: annual ? '#FFFFFF' : 'transparent',
                   color: annual ? '#050507' : '#8E8E93',
                   borderRadius: 999,
-                  padding: '8px 16px',
+                  padding: '8px 18px',
                   fontWeight: 700,
-                  fontSize: 12,
+                  fontSize: 13,
+                  minHeight: 40,
+                  cursor: 'pointer',
+                  border: 'none',
+                  transition: 'all 0.2s',
                 }}
               >
-                Annual <span style={{ color: annual ? '#10B981' : '#10B981', fontWeight: 800 }}>Save 10%</span>
+                Annual <span style={{ color: '#10B981', fontWeight: 800 }}>Save 10%</span>
               </button>
             </div>
           </SectionReveal>
@@ -202,7 +210,7 @@ export default function Pricing() {
                     background: plan.popular ? '#FFFFFF' : '#0C0C10',
                     color: plan.popular ? '#050507' : '#FFFFFF',
                     border: plan.popular ? 'none' : '1px solid rgba(255,255,255,0.08)',
-                    padding: 36,
+                    padding: 'clamp(24px, 4vw, 36px)',
                     borderRadius: 24,
                     boxShadow: plan.popular ? '0 20px 50px rgba(255,255,255,0.15)' : 'none',
                     display: 'flex',
@@ -216,7 +224,7 @@ export default function Pricing() {
                     </span>
                   )}
                   <p className="plan-name" style={{ color: plan.popular ? '#050507' : '#FFFFFF', fontSize: 22, fontWeight: 800 }}>{plan.name}</p>
-                  <p className="plan-price-display" style={{ color: plan.popular ? '#050507' : '#FFFFFF', fontSize: 44, fontWeight: 900, margin: '14px 0 6px' }}>{annual ? plan.priceAnnual : plan.price}</p>
+                  <p className="plan-price-display" style={{ color: plan.popular ? '#050507' : '#FFFFFF', fontSize: 'clamp(36px, 5vw, 44px)', fontWeight: 900, margin: '14px 0 6px' }}>{annual ? plan.priceAnnual : plan.price}</p>
                   <p className="plan-price-note" style={{ color: plan.popular ? '#71717A' : '#8E8E93', fontSize: 12 }}>{plan.note}{annual && plan.price !== 'Custom' ? ' · annual rate' : ''}</p>
                   <p className="plan-description" style={{ color: plan.popular ? '#52525B' : '#8E8E93', fontSize: 13, margin: '14px 0 24px', lineHeight: 1.6 }}>{plan.desc}</p>
                   <Link
@@ -234,6 +242,7 @@ export default function Pricing() {
                       justifyContent: 'center',
                       gap: 6,
                       marginBottom: 28,
+                      minHeight: 46,
                     }}
                     to={plan.name === 'Enterprise' ? '/contact' : '/book-consultation'}
                   >
@@ -243,8 +252,8 @@ export default function Pricing() {
                     {plan.features.map(f => (
                       <li key={f.text} className={`plan-feature-item${!f.incl ? ' excluded' : ''}`} style={{ color: plan.popular ? (f.incl ? '#18181B' : '#A1A1AA') : (f.incl ? '#E4E4E7' : '#71717A'), fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
                         {f.incl
-                          ? <Check size={14} className="incl" style={{ color: plan.popular ? '#050507' : '#22C55E' }} />
-                          : <Minus size={14} className="excl" style={{ color: plan.popular ? '#D4D4D8' : '#3F3F46' }} />}
+                          ? <Check size={14} className="incl" style={{ color: plan.popular ? '#050507' : '#22C55E', flexShrink: 0 }} />
+                          : <Minus size={14} className="excl" style={{ color: plan.popular ? '#D4D4D8' : '#3F3F46', flexShrink: 0 }} />}
                         {f.text}
                       </li>
                     ))}
@@ -267,7 +276,7 @@ export default function Pricing() {
               Everything side by side.
             </h2>
           </SectionReveal>
-          <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <div className="compare-scroll-wrapper">
             <div className="compare-table" style={{ border: '1px solid rgba(255,255,255,0.08)', borderRadius: 20, overflow: 'hidden', background: '#0C0C10', marginTop: 32, minWidth: 540 }}>
               <div className="compare-header-row" style={{ background: '#050507', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
                 <div className="compare-header-cell" style={{ color: '#FFFFFF' }}>Feature</div>
@@ -339,14 +348,14 @@ export default function Pricing() {
             </SectionReveal>
           </div>
 
-          <div className="calculator-card surface-card" style={{ background: '#0C0C10', border: '1px solid rgba(255,255,255,0.08)', padding: 32, borderRadius: 24 }}>
+          <div className="calculator-card surface-card" style={{ background: '#0C0C10', border: '1px solid rgba(255,255,255,0.08)', padding: 'clamp(20px, 4vw, 32px)', borderRadius: 24 }}>
             {/* Pages stepper */}
             <div className="calculator-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
               <span style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 13, textTransform: 'uppercase' }}>Pages</span>
               <div className="stepper" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                <button style={{ background: '#181820', border: '1px solid rgba(255,255,255,0.1)', color: '#FFFFFF', borderRadius: 8, width: 32, height: 32, display: 'grid', placeItems: 'center' }} aria-label="Remove page" onClick={() => setPages(p => Math.max(1, p - 1))}><Minus size={14} /></button>
+                <button style={{ background: '#181820', border: '1px solid rgba(255,255,255,0.1)', color: '#FFFFFF', borderRadius: 8, width: 38, height: 38, display: 'grid', placeItems: 'center', cursor: 'pointer' }} aria-label="Remove page" onClick={() => setPages(p => Math.max(1, p - 1))}><Minus size={15} /></button>
                 <strong style={{ color: '#FFFFFF', fontSize: 18 }}>{pages}</strong>
-                <button style={{ background: '#181820', border: '1px solid rgba(255,255,255,0.1)', color: '#FFFFFF', borderRadius: 8, width: 32, height: 32, display: 'grid', placeItems: 'center' }} aria-label="Add page" onClick={() => setPages(p => Math.min(100, p + 1))}><Plus size={14} /></button>
+                <button style={{ background: '#181820', border: '1px solid rgba(255,255,255,0.1)', color: '#FFFFFF', borderRadius: 8, width: 38, height: 38, display: 'grid', placeItems: 'center', cursor: 'pointer' }} aria-label="Add page" onClick={() => setPages(p => Math.min(100, p + 1))}><Plus size={15} /></button>
               </div>
             </div>
             <input

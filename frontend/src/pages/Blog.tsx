@@ -36,24 +36,24 @@ export default function Blog() {
       </Helmet>
 
       {/* ── Section 1.1: Blog Hero (Dark #09090B) ── */}
-      <section className="page-hero section-gradient-dark" style={{ background: '#09090B', padding: '160px 24px 60px', borderBottom: '1px solid #27272a', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+      <section className="page-hero section-gradient-dark" style={{ background: '#09090B', padding: 'clamp(110px, 16vw, 170px) 24px clamp(36px, 5vw, 60px)', borderBottom: '1px solid #27272a', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <div className="site-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <SectionReveal>
-            <h1 className="display" style={{ color: '#FFFFFF', fontSize: 'clamp(36px, 6vw, 56px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16 }}>
+            <h1 className="display" style={{ color: '#FFFFFF', fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16 }}>
               Insights & Resources
             </h1>
-            <p className="luxury" style={{ color: '#C9A227', fontSize: 'clamp(18px, 3vw, 24px)', fontStyle: 'italic', fontWeight: 400, lineHeight: 1.3, marginBottom: 24 }}>
+            <p className="luxury" style={{ color: '#C9A227', fontSize: 'clamp(18px, 3vw, 24px)', fontStyle: 'italic', fontWeight: 400, lineHeight: 1.3, marginBottom: 20 }}>
               Latest articles on AI, web development & design
             </p>
-            <p className="section-copy" style={{ color: '#71717A', fontSize: 16, lineHeight: 1.6, maxWidth: 600, margin: '0 auto 32px' }}>
+            <p className="section-copy" style={{ color: '#71717A', fontSize: 16, lineHeight: 1.6, maxWidth: 600, margin: '0 auto 28px' }}>
               Explore our curated collection of articles, case studies, and industry insights
             </p>
           </SectionReveal>
 
           {/* Search bar */}
           <div style={{ width: '100%', maxWidth: 500, margin: '0 auto' }}>
-            <label className="premium-search-bar" htmlFor="blog-search" style={{ background: '#18181B', border: '1px solid #27272A', borderRadius: 999, padding: '12px 20px', display: 'flex', alignItems: 'center', gap: 12, width: '100%' }}>
-              <Search size={20} style={{ color: '#71717A', cursor: 'pointer' }} />
+            <label className="premium-search-bar" htmlFor="blog-search" style={{ background: '#18181B', border: '1px solid #27272A', borderRadius: 999, padding: '10px 18px', display: 'flex', alignItems: 'center', gap: 12, width: '100%' }}>
+              <Search size={18} style={{ color: '#71717A', flexShrink: 0 }} />
               <input
                 id="blog-search"
                 aria-label="Search articles"
@@ -68,13 +68,13 @@ export default function Blog() {
       </section>
 
       {/* ── Section 1.2 & 1.3: Filters & Articles Grid (Dark #09090B) ── */}
-      <section className="section" style={{ background: '#09090B', padding: '40px 24px 80px' }}>
+      <section className="section" style={{ background: '#09090B', padding: 'clamp(30px, 5vw, 40px) 24px clamp(50px, 7vw, 80px)' }}>
         <div className="site-container" style={{ maxWidth: 1400, margin: '0 auto' }}>
           {/* Section 1.2 Filter Row */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 24, marginBottom: 40, borderTop: '1px solid #27272A', paddingTop: 24 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-              <span style={{ fontWeight: 700, fontSize: 14, color: '#FFFFFF' }}>Filter by:</span>
-              <div className="filter-pills-row" style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 36, borderTop: '1px solid #27272A', paddingTop: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', width: '100%' }}>
+              <span style={{ fontWeight: 700, fontSize: 13, color: '#FFFFFF', flexShrink: 0 }}>Filter by:</span>
+              <div className="mobile-scroll-row" style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {categories.map(cat => (
                   <button
                     key={cat}
@@ -85,11 +85,13 @@ export default function Blog() {
                       border: category === cat ? '1px solid #C9A227' : '1px solid #27272A',
                       color: category === cat ? '#09090B' : '#FAFAF8',
                       fontWeight: category === cat ? 700 : 400,
-                      fontSize: 14,
-                      padding: '8px 16px',
+                      fontSize: 13,
+                      padding: '7px 16px',
                       borderRadius: 999,
                       cursor: 'pointer',
-                      transition: 'all 0.3s ease'
+                      transition: 'all 0.3s ease',
+                      whiteSpace: 'nowrap',
+                      flexShrink: 0,
                     }}
                   >
                     {cat}
@@ -104,7 +106,7 @@ export default function Blog() {
             <div className="content-loading"><span className="spinner" /></div>
           ) : posts.length ? (
             <>
-              <div className="blog-grid-enhanced" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: 24, alignItems: 'start' }}>
+              <div className="blog-grid-enhanced" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: 24, alignItems: 'start' }}>
                 {posts.map((post, i) => (
                   <SectionReveal key={post._id} delay={i * 0.04}>
                     <Link

@@ -48,7 +48,7 @@ export function Navbar() {
         left: 0,
         right: 0,
         zIndex: 1000,
-        padding: '16px 24px',
+        padding: 'clamp(8px, 2vw, 16px) clamp(10px, 3vw, 24px)',
         display: 'flex',
         justifyContent: 'center',
         pointerEvents: 'none',
@@ -62,10 +62,10 @@ export function Navbar() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          background: scrolled ? 'rgba(10, 10, 14, 0.85)' : 'rgba(12, 12, 16, 0.65)',
+          background: scrolled ? 'rgba(10, 10, 14, 0.9)' : 'rgba(12, 12, 16, 0.75)',
           border: '1px solid rgba(255, 255, 255, 0.1)',
           borderRadius: 999,
-          padding: '8px 16px 8px 20px',
+          padding: 'clamp(6px, 1.5vw, 8px) clamp(12px, 2vw, 20px)',
           backdropFilter: 'blur(20px)',
           boxShadow: scrolled ? '0 15px 35px rgba(0,0,0,0.6)' : '0 10px 25px rgba(0,0,0,0.3)',
           transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -93,11 +93,12 @@ export function Navbar() {
               display: 'grid',
               placeItems: 'center',
               boxShadow: '0 0 12px rgba(255,255,255,0.4)',
+              flexShrink: 0,
             }}
           >
             <Sparkles size={14} color="#050507" />
           </div>
-          <span style={{ fontSize: 16, fontWeight: 800, letterSpacing: '-0.03em' }}>
+          <span style={{ fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 800, letterSpacing: '-0.03em' }}>
             KTUX<span style={{ color: '#A1A1AA', fontWeight: 500, marginLeft: 3 }}>STUDIO</span>
           </span>
         </Link>
@@ -239,7 +240,7 @@ export function Navbar() {
             Book Free Consultation <ArrowUpRight size={14} />
           </Link>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Toggle with 44px tap target */}
           <button
             className="show-on-mobile"
             onClick={() => setOpen(!open)}
@@ -248,8 +249,10 @@ export function Navbar() {
               background: 'transparent',
               border: 'none',
               color: '#FFFFFF',
+              display: 'grid',
               placeItems: 'center',
-              padding: 6,
+              width: 44,
+              height: 44,
               cursor: 'pointer',
               borderRadius: '50%',
             }}
@@ -264,41 +267,91 @@ export function Navbar() {
         <div
           style={{
             position: 'absolute',
-            top: 70,
-            left: 16,
-            right: 16,
+            top: 'clamp(58px, 10vw, 72px)',
+            left: 12,
+            right: 12,
             background: '#0D0D11',
             border: '1px solid rgba(255, 255, 255, 0.14)',
             borderRadius: 20,
-            padding: '20px 24px',
+            padding: '20px 20px',
             display: 'flex',
             flexDirection: 'column',
-            gap: 10,
+            gap: 6,
             pointerEvents: 'auto',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.9)',
-            maxHeight: 'calc(100vh - 100px)',
+            boxShadow: '0 20px 50px rgba(0,0,0,0.95)',
+            maxHeight: 'calc(100dvh - 85px)',
             overflowY: 'auto',
             zIndex: 1001,
           }}
         >
           {LINKS.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              onClick={() => setOpen(false)}
-              style={{
-                color: '#FFFFFF',
-                fontSize: 15,
-                fontWeight: 600,
-                textDecoration: 'none',
-                padding: '8px 0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.04)',
-              }}
-            >
-              {link.label}
-            </Link>
+            <div key={link.label}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Link
+                  to={link.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    color: '#FFFFFF',
+                    fontSize: 16,
+                    fontWeight: 700,
+                    textDecoration: 'none',
+                    padding: '10px 0',
+                    flex: 1,
+                  }}
+                >
+                  {link.label}
+                </Link>
+                {link.children && (
+                  <button
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    style={{
+                      background: 'rgba(255,255,255,0.06)',
+                      border: 'none',
+                      color: '#A1A1AA',
+                      width: 36,
+                      height: 36,
+                      borderRadius: 8,
+                      display: 'grid',
+                      placeItems: 'center',
+                      cursor: 'pointer',
+                    }}
+                    aria-label="Toggle sub-services"
+                  >
+                    <ChevronDown size={16} style={{ transform: servicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+                  </button>
+                )}
+              </div>
+
+              {/* Mobile Services Sub-items */}
+              {link.children && servicesOpen && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingLeft: 14, paddingBottom: 8, borderLeft: '2px solid rgba(201,162,39,0.3)', margin: '4px 0 8px 4px' }}>
+                  {link.children.map(([childLabel, childHref]) => (
+                    <Link
+                      key={childHref}
+                      to={childHref}
+                      onClick={() => setOpen(false)}
+                      style={{
+                        color: '#A1A1AA',
+                        fontSize: 14,
+                        fontWeight: 500,
+                        textDecoration: 'none',
+                        padding: '6px 0',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      {childLabel}
+                      <ArrowUpRight size={12} style={{ opacity: 0.7 }} />
+                    </Link>
+                  ))}
+                </div>
+              )}
+              <div style={{ height: 1, background: 'rgba(255,255,255,0.04)' }} />
+            </div>
           ))}
-          <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', margin: '4px 0' }} />
+
+          <div style={{ height: 1, background: 'rgba(255,255,255,0.08)', margin: '6px 0' }} />
           <Link
             to="/book-consultation"
             className="button-white"
@@ -306,13 +359,14 @@ export function Navbar() {
             style={{
               textAlign: 'center',
               justifyContent: 'center',
-              padding: '12px 20px',
+              padding: '14px 20px',
               borderRadius: 999,
               fontSize: 14,
               fontWeight: 700,
               textDecoration: 'none',
               width: '100%',
-              marginTop: 4,
+              marginTop: 6,
+              minHeight: 46,
             }}
           >
             Book Free Consultation <ArrowUpRight size={15} />
@@ -322,3 +376,4 @@ export function Navbar() {
     </header>
   );
 }
+

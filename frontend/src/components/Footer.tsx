@@ -37,8 +37,8 @@ export function Footer() {
       style={{
         background: '#050507',
         borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-        paddingTop: 80,
-        paddingBottom: 40,
+        paddingTop: 'clamp(48px, 8vw, 80px)',
+        paddingBottom: 'clamp(28px, 5vw, 40px)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -48,9 +48,9 @@ export function Footer() {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
-            gap: 40,
-            paddingBottom: 60,
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
+            gap: 'clamp(24px, 4vw, 40px)',
+            paddingBottom: 'clamp(36px, 6vw, 60px)',
           }}
         >
           {/* Brand Col */}
@@ -74,6 +74,7 @@ export function Footer() {
                   display: 'grid',
                   placeItems: 'center',
                   boxShadow: '0 0 14px rgba(255,255,255,0.4)',
+                  flexShrink: 0,
                 }}
               >
                 <Sparkles size={16} color="#050507" />
@@ -139,7 +140,7 @@ export function Footer() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#8E8E93')}
               >
-                <Mail size={14} style={{ color: '#FFFFFF' }} /> ktuxai@zohomail.in
+                <Mail size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} /> ktuxai@zohomail.in
               </a>
               <a
                 href="tel:+917084499128"
@@ -154,10 +155,10 @@ export function Footer() {
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#8E8E93')}
               >
-                <Phone size={14} style={{ color: '#FFFFFF' }} /> +91 70844 99128
+                <Phone size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} /> +91 70844 99128
               </a>
               <span style={{ color: '#8E8E93', fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
-                <MapPin size={14} style={{ color: '#FFFFFF' }} /> India · Global Client Delivery
+                <MapPin size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} /> India · Global Delivery
               </span>
             </div>
           </div>
@@ -175,8 +176,8 @@ export function Footer() {
             alignItems: 'center',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
-            gap: 16,
-            paddingTop: 30,
+            gap: 14,
+            paddingTop: 24,
             borderTop: '1px solid rgba(255, 255, 255, 0.08)',
             color: '#71717A',
             fontSize: 12,

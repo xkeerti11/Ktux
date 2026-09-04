@@ -81,7 +81,7 @@ export default function CaseStudyDetail() {
           className="case-hero-dark"
           style={{
             background: 'linear-gradient(180deg, #111113 0%, #09090B 100%)',
-            padding: '140px 24px 60px',
+            padding: 'clamp(110px, 16vw, 170px) clamp(16px, 4vw, 24px) clamp(36px, 5vw, 60px)',
             borderBottom: '1px solid #27272A',
           }}
         >
@@ -156,7 +156,7 @@ export default function CaseStudyDetail() {
                 className="display"
                 style={{
                   color: '#FFFFFF',
-                  fontSize: 'clamp(32px, 5vw, 52px)',
+                  fontSize: 'clamp(28px, 5vw, 52px)',
                   fontWeight: 800,
                   lineHeight: 1.2,
                   margin: '12px 0',
@@ -194,7 +194,7 @@ export default function CaseStudyDetail() {
               </p>
 
               {/* Action Buttons (Live Demo & GitHub) */}
-              <div style={{ display: 'flex', gap: 14, flexWrap: 'wrap', alignItems: 'center', marginBottom: 40 }}>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center', marginBottom: 36 }}>
                 {item.liveUrl && (
                   <a
                     href={item.liveUrl}
@@ -269,9 +269,9 @@ export default function CaseStudyDetail() {
               className="case-hero-meta-bar"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                gap: 20,
-                padding: '24px',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
+                gap: 16,
+                padding: 'clamp(16px, 3vw, 24px)',
                 background: '#18181B',
                 borderRadius: 16,
                 border: '1px solid #27272A',
@@ -298,14 +298,14 @@ export default function CaseStudyDetail() {
         </section>
 
         {/* ── Featured Live Preview / Mock Browser ── */}
-        <section style={{ background: '#09090B', padding: '40px 24px 0' }}>
+        <section style={{ background: '#09090B', padding: 'clamp(24px, 4vw, 40px) clamp(16px, 4vw, 24px) 0' }}>
           <div className="site-container" style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div
               style={{
-                height: 'clamp(480px, 70vh, 740px)',
+                height: 'clamp(320px, 60vw, 700px)',
                 width: '100%',
                 overflow: 'hidden',
-                borderRadius: 24,
+                borderRadius: 20,
                 border: '1px solid #27272A',
                 background: '#111113',
                 boxShadow: '0 25px 60px rgba(0,0,0,0.7)',

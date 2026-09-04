@@ -50,7 +50,7 @@ export default function BlogPost() {
 
       <article>
         {/* ── Article Header (Dark) ── */}
-        <header className="article-header-dark" style={{ background: '#09090B', padding: '160px 24px 60px', borderBottom: '1px solid #27272a' }}>
+        <header className="article-header-dark" style={{ background: '#09090B', padding: 'clamp(130px, 16vw, 170px) 24px clamp(40px, 5vw, 60px)', borderBottom: '1px solid #27272a' }}>
           <div className="site-container" style={{ maxWidth: 900 }}>
             <Link to="/blog" className="back-link" style={{ color: '#71717A', marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
               <ArrowLeft size={15} /> Back to journal
@@ -58,8 +58,8 @@ export default function BlogPost() {
             <div style={{ marginTop: 20 }}>
               <span className="blog-tag" style={{ background: '#C9A227', color: '#1A1A1A', padding: '6px 14px', borderRadius: 999, fontWeight: 700, fontSize: 12 }}>{post.category}</span>
             </div>
-            <h1 style={{ marginTop: 20, marginBottom: 16, color: '#FFFFFF', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: 800, lineHeight: 1.15 }}>{post.title}</h1>
-            <p style={{ fontSize: 18, color: '#71717A', lineHeight: 1.65, maxWidth: 680, marginBottom: 28 }}>{post.excerpt}</p>
+            <h1 style={{ marginTop: 20, marginBottom: 16, color: '#FFFFFF', fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 800, lineHeight: 1.15 }}>{post.title}</h1>
+            <p style={{ fontSize: 'clamp(16px, 2vw, 18px)', color: '#71717A', lineHeight: 1.65, maxWidth: 680, marginBottom: 28 }}>{post.excerpt}</p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
               <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#71717A', fontSize: 13 }}>
                 <Clock size={13} style={{ color: '#C9A227' }} /> {post.readTime} min read
@@ -85,7 +85,7 @@ export default function BlogPost() {
 
         {/* ── Featured Image ── */}
         {post.seo?.ogImage ? (
-          <div style={{ width: '100%', height: 600, overflow: 'hidden' }}>
+          <div style={{ width: '100%', height: 'clamp(240px, 45vw, 550px)', overflow: 'hidden' }}>
             <img
               className="article-featured-img"
               src={post.seo.ogImage}
@@ -94,7 +94,7 @@ export default function BlogPost() {
             />
           </div>
         ) : (
-          <div className="article-featured-placeholder" style={{ height: 400, background: '#18181B', color: '#C9A227', borderBottom: '1px solid #27272A', display: 'grid', placeItems: 'center', fontSize: 48, fontWeight: 800 }}>
+          <div className="article-featured-placeholder" style={{ height: 'clamp(200px, 35vw, 360px)', background: '#18181B', color: '#C9A227', borderBottom: '1px solid #27272A', display: 'grid', placeItems: 'center', fontSize: 48, fontWeight: 800 }}>
             {post.category.slice(0, 2).toUpperCase()}
           </div>
         )}

@@ -285,9 +285,9 @@ export default function Contact() {
                   </div>
 
                   {/* Name & Email Row */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 14 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: 14 }}>
                     <div>
-                      <label htmlFor="contact-name" style={{ color: '#E4E4E7', fontSize: 12, fontWeight: 700, display: 'block', marginBottom: 6 }}>Your Name *</label>
+                      <label htmlFor="contact-name" style={{ color: '#E4E4E7', fontSize: 13, fontWeight: 700, display: 'block', marginBottom: 6 }}>Your Name *</label>
                       <input
                         id="contact-name"
                         {...register('name')}
@@ -299,15 +299,16 @@ export default function Contact() {
                           borderRadius: 12,
                           padding: '12px 14px',
                           color: '#FFFFFF',
-                          fontSize: 13,
+                          fontSize: 16,
                           outline: 'none',
+                          minHeight: 46,
                         }}
                       />
-                      {errors.name && <small style={{ color: '#EF4444', fontSize: 11, marginTop: 4, display: 'block' }}>{errors.name.message}</small>}
+                      {errors.name && <small style={{ color: '#EF4444', fontSize: 12, marginTop: 4, display: 'block' }}>{errors.name.message}</small>}
                     </div>
 
                     <div>
-                      <label htmlFor="contact-email" style={{ color: '#E4E4E7', fontSize: 12, fontWeight: 700, display: 'block', marginBottom: 6 }}>Work Email *</label>
+                      <label htmlFor="contact-email" style={{ color: '#E4E4E7', fontSize: 13, fontWeight: 700, display: 'block', marginBottom: 6 }}>Work Email *</label>
                       <input
                         id="contact-email"
                         {...register('email')}
@@ -320,18 +321,19 @@ export default function Contact() {
                           borderRadius: 12,
                           padding: '12px 14px',
                           color: '#FFFFFF',
-                          fontSize: 13,
+                          fontSize: 16,
                           outline: 'none',
+                          minHeight: 46,
                         }}
                       />
-                      {errors.email && <small style={{ color: '#EF4444', fontSize: 11, marginTop: 4, display: 'block' }}>{errors.email.message}</small>}
+                      {errors.email && <small style={{ color: '#EF4444', fontSize: 12, marginTop: 4, display: 'block' }}>{errors.email.message}</small>}
                     </div>
                   </div>
 
                   {/* Phone & Company Row */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 14 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: 14 }}>
                     <div>
-                      <label htmlFor="contact-phone" style={{ color: '#E4E4E7', fontSize: 12, fontWeight: 700, display: 'block', marginBottom: 6 }}>WhatsApp / Phone</label>
+                      <label htmlFor="contact-phone" style={{ color: '#E4E4E7', fontSize: 13, fontWeight: 700, display: 'block', marginBottom: 6 }}>WhatsApp / Phone</label>
                       <input
                         id="contact-phone"
                         {...register('phone')}
@@ -343,14 +345,15 @@ export default function Contact() {
                           borderRadius: 12,
                           padding: '12px 14px',
                           color: '#FFFFFF',
-                          fontSize: 13,
+                          fontSize: 16,
                           outline: 'none',
+                          minHeight: 46,
                         }}
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="contact-company" style={{ color: '#E4E4E7', fontSize: 12, fontWeight: 700, display: 'block', marginBottom: 6 }}>Company / Brand</label>
+                      <label htmlFor="contact-company" style={{ color: '#E4E4E7', fontSize: 13, fontWeight: 700, display: 'block', marginBottom: 6 }}>Company / Brand</label>
                       <input
                         id="contact-company"
                         {...register('company')}
@@ -362,8 +365,9 @@ export default function Contact() {
                           borderRadius: 12,
                           padding: '12px 14px',
                           color: '#FFFFFF',
-                          fontSize: 13,
+                          fontSize: 16,
                           outline: 'none',
+                          minHeight: 46,
                         }}
                       />
                     </div>
@@ -399,7 +403,7 @@ export default function Contact() {
 
                   {/* Message Field */}
                   <div>
-                    <label htmlFor="contact-message" style={{ color: '#E4E4E7', fontSize: 12, fontWeight: 700, display: 'block', marginBottom: 6 }}>Project Scope & Objectives *</label>
+                    <label htmlFor="contact-message" style={{ color: '#E4E4E7', fontSize: 13, fontWeight: 700, display: 'block', marginBottom: 6 }}>Project Scope & Objectives *</label>
                     <textarea
                       id="contact-message"
                       {...register('message')}
@@ -412,19 +416,19 @@ export default function Contact() {
                         borderRadius: 12,
                         padding: '12px 14px',
                         color: '#FFFFFF',
-                        fontSize: 13,
+                        fontSize: 16,
                         outline: 'none',
                         resize: 'vertical',
                       }}
                     />
-                    {errors.message && <small style={{ color: '#EF4444', fontSize: 11, marginTop: 4, display: 'block' }}>{errors.message.message}</small>}
+                    {errors.message && <small style={{ color: '#EF4444', fontSize: 12, marginTop: 4, display: 'block' }}>{errors.message.message}</small>}
                   </div>
 
                   <button
                     type="submit"
                     disabled={mutation.isPending}
                     className="button-white"
-                    style={{ width: '100%', justifyContent: 'center', minHeight: 46 }}
+                    style={{ width: '100%', justifyContent: 'center', minHeight: 48 }}
                   >
                     {mutation.isPending ? 'Sending Inquiry...' : 'Submit Project Inquiry →'}
                   </button>

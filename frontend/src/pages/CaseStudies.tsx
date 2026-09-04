@@ -35,13 +35,13 @@ export default function CaseStudies() {
         />
       </Helmet>
 
-      <section className="page-hero section-gradient-dark" style={{ background: '#09090B', padding: '160px 24px 60px', borderBottom: '1px solid #27272a' }}>
+      <section className="page-hero section-gradient-dark" style={{ background: '#09090B', padding: 'clamp(110px, 16vw, 170px) 24px clamp(40px, 6vw, 60px)', borderBottom: '1px solid #27272a' }}>
         <div className="site-container">
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 999, background: 'rgba(201, 162, 39, 0.12)', border: '1px solid rgba(201, 162, 39, 0.3)', marginBottom: 20 }}>
             <Sparkles size={15} style={{ color: '#C9A227' }} />
             <span style={{ color: '#C9A227', fontSize: 13, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>The Casebook</span>
           </div>
-          <h1 className="display" style={{ color: '#FFFFFF', fontSize: 'clamp(36px, 6vw, 56px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16 }}>
+          <h1 className="display" style={{ color: '#FFFFFF', fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16 }}>
             The Architecture & Decisions<br />
             <span className="luxury gold">Behind The Outcomes.</span>
           </h1>
@@ -51,14 +51,14 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <section className="section" style={{ background: '#09090B', padding: '60px 24px 100px' }}>
+      <section className="section" style={{ background: '#09090B', padding: 'clamp(40px, 6vw, 60px) 24px clamp(60px, 8vw, 100px)' }}>
         <div className="site-container">
           {isLoading ? (
             <div className="content-loading">
               <span className="spinner" />
             </div>
           ) : (
-            <div className="case-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 32 }}>
+            <div className="case-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: 24 }}>
               {items.map((item, index) => (
                 <SectionReveal key={item._id} delay={index * 0.06}>
                   <div
