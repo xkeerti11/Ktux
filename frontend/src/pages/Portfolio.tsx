@@ -36,7 +36,7 @@ export default function Portfolio() {
     return () => window.clearTimeout(t);
   }, [search]);
 
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['portfolio', query, category],
     queryFn: () =>
       listCaseStudies({
@@ -45,6 +45,11 @@ export default function Portfolio() {
         page: 1,
         limit: 30,
       }),
+    initialData: {
+      success: true,
+      data: CASE_STUDIES_DATA,
+      pagination: { total: CASE_STUDIES_DATA.length, page: 1, limit: 30, pages: 1 },
+    },
   });
 
   const projects = useMemo(() => {
@@ -203,17 +208,13 @@ export default function Portfolio() {
           </div>
 
           {/* Project Cards Grid */}
-          {isLoading ? (
-            <div style={{ minHeight: 300, display: 'grid', placeItems: 'center', color: '#8E8E93' }}>
-              Loading production systems...
-            </div>
-          ) : projects.length === 0 ? (
+          {projects.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '60px 20px', background: '#0C0C10', borderRadius: 24, border: '1px solid rgba(255,255,255,0.08)' }}>
               <p style={{ color: '#8E8E93', fontSize: 16 }}>No projects matched your search criteria.</p>
               <button
                 onClick={() => { setCategory('All'); setSearch(''); }}
                 className="button-white"
-                style={{ marginTop: 16 }}
+                style={{ marginTop: 16, cursor: 'pointer' }}
               >
                 Reset Filters
               </button>

@@ -68,15 +68,13 @@ const services = [
   },
 ];
 
-// ── PRD Section 1.5: 7-Step Process ──
+// ── 5-Step Delivery Framework ──
 const processSteps = [
-  { step: '01', title: 'Discovery', desc: 'Deep dive into your business goals, target audience, and system requirements.', icon: Rocket },
-  { step: '02', title: 'Planning', desc: 'Architectural roadmap, tech stack selection, wireframes, and scope alignment.', icon: Lightbulb },
-  { step: '03', title: 'Design', desc: 'Bespoke UI/UX design with luxury aesthetics and high-conversion layouts.', icon: Palette },
-  { step: '04', title: 'Development', desc: 'Clean, modular full-stack engineering with TypeScript and rapid iterations.', icon: Code2 },
-  { step: '05', title: 'Testing', desc: 'Rigorous QA, cross-browser compatibility, security audits, and speed optimization.', icon: Wrench },
-  { step: '06', title: 'Launch', desc: 'Zero-downtime deployment, DNS configuration, and automated analytics setup.', icon: Sparkles },
-  { step: '07', title: 'Support', desc: 'Continuous performance monitoring, security patches, and scaling assistance.', icon: HeartHandshake },
+  { step: '01', title: 'DISCOVER', desc: 'Deep dive into your business bottleneck, audience intent, and system constraints.', icon: Rocket },
+  { step: '02', title: 'ARCHITECT', desc: 'Bespoke UI/UX wireframes, technical schema, and AI automation pipeline mapping.', icon: Lightbulb },
+  { step: '03', title: 'BUILD', desc: 'Clean, modular full-stack TypeScript engineering with rapid iterative sprints.', icon: Code2 },
+  { step: '04', title: 'LAUNCH', desc: 'Sub-1.2s performance tuning, security verification, and zero-downtime deployment.', icon: Sparkles },
+  { step: '05', title: 'SCALE & IMPROVE', desc: 'Continuous SLA monitoring, conversion analysis, and automated scaling.', icon: HeartHandshake },
 ];
 
 // ── PRD Section 1.4: Flagship Featured Projects ──
@@ -227,29 +225,29 @@ export default function Home() {
                 <ArrowRight size={13} style={{ opacity: 0.7 }} />
               </Link>
 
-              {/* High-Impact PRD Headline */}
+              {/* High-Impact Targeted Headline */}
               <h1
                 style={{
-                  fontSize: 'clamp(32px, 6.5vw, 68px)',
+                  fontSize: 'clamp(34px, 6.5vw, 68px)',
                   fontWeight: 900,
                   letterSpacing: '-0.04em',
                   lineHeight: 1.08,
                   color: '#FFFFFF',
                 }}
               >
-                Premium Digital Solutions for <span style={{ color: '#E4E4E7' }}>Modern Businesses</span>
+                Websites, AI automation & digital systems built for <span style={{ color: '#E4E4E7' }}>ambitious businesses.</span>
               </h1>
 
-              {/* Subheading from PRD */}
+              {/* Outcome-Driven Subheading */}
               <p
                 style={{
-                  fontSize: 'clamp(16px, 2.2vw, 22px)',
+                  fontSize: 'clamp(16px, 2.2vw, 20px)',
                   fontWeight: 700,
                   color: '#FFFFFF',
                   letterSpacing: '-0.02em',
                 }}
               >
-                Design. Develop. Automate. Grow.
+                Faster execution. Less manual drag. Systems that scale.
               </p>
 
               {/* Value Proposition Description */}
@@ -258,24 +256,24 @@ export default function Home() {
                   fontSize: 'clamp(14px, 1.8vw, 16px)',
                   color: '#8E8E93',
                   lineHeight: 1.7,
-                  maxWidth: 520,
+                  maxWidth: 540,
                 }}
               >
-                We architect high-conversion websites, custom AI automation workflows, and distinctive digital brand ecosystems built for enduring performance.
+                We replace slow agency timelines and bloated templates with custom, high-converting digital platforms and autonomous AI workflows that compound revenue.
               </p>
 
-              {/* Dual Action Buttons */}
+              {/* Standardized Dual Action Buttons */}
               <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: 12, marginTop: 6 }}>
                 <Link to="/book-consultation" className="button-white">
-                  Book Free Consultation <ArrowUpRight size={14} />
+                  Book a Free Consultation <ArrowUpRight size={14} />
                 </Link>
 
                 <Link to="/portfolio" className="button-glass-play">
-                  View Portfolio <ArrowUpRight size={14} />
+                  See Our Work <ArrowRight size={14} />
                 </Link>
               </div>
 
-              {/* PRD Trust Badge & Live Metrics Counter */}
+              {/* Verifiable Live Metrics Counter */}
               <div
                 style={{
                   display: 'flex',
@@ -290,15 +288,15 @@ export default function Home() {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#10B981', fontWeight: 600 }}>
-                  <ShieldCheck size={16} /> Trusted by 100+ Businesses Worldwide
+                  <ShieldCheck size={16} /> Sub-1.2s Load Speed
                 </div>
                 <div style={{ color: '#E4E4E7', fontWeight: 700 }}>
-                  250+ Projects <span style={{ color: '#71717A', margin: '0 4px' }}>·</span> 50+ Industries
+                  0 Booking Conflicts <span style={{ color: '#71717A', margin: '0 4px' }}>·</span> 99.9% Uptime SLA
                 </div>
               </div>
             </div>
 
-            {/* Right Hero Graphic: 3D Chrome Metallic Star */}
+            {/* Right Hero Graphic: 3D Chrome Metallic Star & Live Badge */}
             <div
               style={{
                 display: 'grid',
@@ -313,25 +311,22 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Partner / Trust Logo Strip */}
+          {/* Industry Trust Strip */}
           <div className="partner-logo-strip">
             <span className="partner-logo-item">
-              <span style={{ fontWeight: 800 }}>Google</span>
+              <span style={{ fontWeight: 800 }}>HEALTHCARE</span>
             </span>
             <span className="partner-logo-item">
-              <span style={{ fontWeight: 800 }}>Framer</span>
+              <span style={{ fontWeight: 800 }}>AI & EDTECH</span>
             </span>
             <span className="partner-logo-item">
-              <span style={{ fontWeight: 800 }}>Apple</span>
+              <span style={{ fontWeight: 800 }}>REAL ESTATE</span>
             </span>
             <span className="partner-logo-item">
-              <span style={{ fontWeight: 800 }}>Adobe</span>
+              <span style={{ fontWeight: 800 }}>B2B SAAS</span>
             </span>
             <span className="partner-logo-item">
-              <span style={{ fontWeight: 800 }}>LinkedIn</span>
-            </span>
-            <span className="partner-logo-item">
-              <span style={{ fontWeight: 800 }}>Microsoft</span>
+              <span style={{ fontWeight: 800 }}>E-COMMERCE</span>
             </span>
           </div>
         </div>
@@ -484,7 +479,7 @@ export default function Home() {
           {/* Section Header */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 640 }}>
             <span className="talos-pill" style={{ alignSelf: 'flex-start' }}>
-              <span className="talos-pill-dot" /> Why Choose KTUX
+              <span className="talos-pill-dot" /> Why KTUX
             </span>
             <h2
               style={{
@@ -495,11 +490,11 @@ export default function Home() {
                 color: '#FFFFFF',
               }}
             >
-              Engineered for Speed, <br />
-              Aesthetics & Scale
+              Built Differently From <br />
+              Traditional Agencies
             </h2>
             <p style={{ color: '#8E8E93', fontSize: 15, lineHeight: 1.7 }}>
-              We combine luxury design sensibilities with modern AI-assisted engineering to deliver unmatched speed and compounding business results.
+              Direct senior founder engineering. 100% full-stack code ownership. AI-assisted velocity with zero technical debt.
             </p>
           </div>
 
@@ -896,13 +891,13 @@ export default function Home() {
         <div className="site-container" style={{ maxWidth: 1200, margin: '0 auto' }}>
           <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto 50px' }}>
             <span className="talos-pill" style={{ marginBottom: 14 }}>
-              <span className="talos-pill-dot" /> Execution Framework
+              <span className="talos-pill-dot" /> Delivery Framework
             </span>
             <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 900, color: '#FFFFFF', marginTop: 10 }}>
-              Our 7-Step Delivery Process
+              From Idea to Live System: Our 5-Step Process
             </h2>
             <p style={{ color: '#8E8E93', fontSize: 15, lineHeight: 1.6, marginTop: 10 }}>
-              From initial discovery to post-launch optimization, every step is engineered for transparency and speed.
+              No mystery hand-offs. Clear milestones, continuous visibility, and zero latency from concept to deployment.
             </p>
           </div>
 
@@ -1255,21 +1250,20 @@ export default function Home() {
       >
         <div className="site-container" style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 22 }}>
           <span className="talos-pill">
-            <span className="talos-pill-dot" /> Ready to Transform?
+            <span className="talos-pill-dot" /> Direct Consultation
           </span>
-          <h2 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 900, color: '#FFFFFF', lineHeight: 1.1 }}>
-            Ready to Transform <br />
-            Your Business?
+          <h2 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 900, color: '#FFFFFF', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+            Ready to Build a High-Converting Digital Platform?
           </h2>
           <p style={{ color: '#8E8E93', fontSize: 16, maxWidth: 520, lineHeight: 1.7 }}>
-            Get started with a free architectural consultation. A direct conversation about your product, your bottlenecks, and how to build momentum.
+            Book a 30-minute discovery call directly with our engineering founders. A focused discussion on your system goals, bottlenecks, and ROI.
           </p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', justifyContent: 'center', marginTop: 10 }}>
             <Link to="/book-consultation" className="button-white">
-              Book Free Consultation <ArrowUpRight size={14} />
+              Book a Free Consultation <ArrowUpRight size={14} />
             </Link>
-            <Link to="/pricing" className="button-glass-play">
-              View Pricing <ArrowUpRight size={14} />
+            <Link to="/portfolio" className="button-glass-play">
+              See Our Work <ArrowRight size={14} />
             </Link>
           </div>
         </div>

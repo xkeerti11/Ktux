@@ -13,30 +13,30 @@ const stats = [
 
 const story = [
   {
-    eyebrow: 'Our Origin',
-    title: 'Built entirely with AI superpowers.',
+    eyebrow: 'Our Philosophy',
+    title: 'Built differently from traditional agencies.',
     body: [
-      'KTUX Studio was founded by two builders who believe that with modern AI tools and deep architectural discipline, a lean, founder-led studio can out-execute a bloated 50-person agency.',
-      'From your initial sprint strategy to production security deployment — every layer is built and owned personally by the founders.',
+      'KTUX Studio was founded on a simple conviction: ambitious businesses do not need a bloated 50-person agency with junior account managers and 6-month timelines. They need direct senior engineering and sharp systems thinking.',
+      'By pairing deep architectural discipline with modern AI-assisted velocity, we deliver production-ready web flagships and autonomous workflows in weeks, not months.',
     ],
   },
   {
     eyebrow: 'Our Method',
-    title: 'Zero to production, every time.',
+    title: 'From idea to live system.',
     body: [
-      'We do not outsource. We do not pass clients off to junior account managers. Every line of TypeScript, AI prompt pipeline, and database schema is crafted by the people you talk to on day one.',
-      'That means faster decisions, zero translation errors, and high-converting systems that compound business revenue.',
+      'We do not stop at the mockup. We ship complete, secure, production-grade software you own 100% with clean TypeScript, structured schemas, and zero vendor lock-in.',
+      'Every line of code and AI workflow is architected directly by the founders you speak to on day one.',
     ],
   },
 ];
 
 const values = [
-  { icon: ShieldCheck, title: 'Security-First Architecture', copy: 'Every project ships with AES-256 encryption, rate-limiting, and sanitized inputs from day one.' },
-  { icon: Lightbulb,  title: 'AI-Native Engineering', copy: 'We leverage cutting-edge AI tools to build 2x faster at a fraction of traditional agency overhead.' },
-  { icon: Rocket,     title: 'Zero to Launch', copy: 'We turn your idea into a fully deployed, high-converting digital asset with full source ownership.' },
-  { icon: Zap,        title: 'Founder-Led Speed', copy: 'Work directly with the architects. High velocity with zero bureaucratic friction.' },
-  { icon: Users,      title: 'Commercial Outcome Focus', copy: 'We measure success by your metrics: qualified leads, hours saved, and revenue compounded.' },
-  { icon: Sparkles,   title: 'Luxury Craft & Polish', copy: 'Aesthetic elegance and technical speed are engineered together in every single build.' },
+  { icon: ShieldCheck, title: 'Security-First Architecture', copy: 'Every project ships with AES-256 cryptography, rate-limiting, and sanitized inputs from day one.' },
+  { icon: Zap,        title: 'Direct Founder Engineering', copy: 'Work directly with senior architects. No junior hand-offs and zero bureaucratic translation loss.' },
+  { icon: Users,      title: 'Commercial Outcome Focus', copy: 'We measure success by your business metrics: qualified pipeline, hours saved, and compounding revenue.' },
+  { icon: Lightbulb,  title: 'AI-Native Acceleration', copy: 'We leverage cutting-edge AI models and RAG pipelines to execute 2x faster with zero technical debt.' },
+  { icon: Rocket,     title: 'Complete System Ownership', copy: 'Full source code ownership, clean TypeScript, and production CI/CD deployment with zero lock-in.' },
+  { icon: Sparkles,   title: 'Luxury Craft & Polish', copy: 'Sub-1.2s load speeds, obsidian dark elegance, and responsive fluid layouts across all devices.' },
 ];
 
 export default function About() {
@@ -93,10 +93,10 @@ export default function About() {
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap', marginTop: 24 }}>
               <Link to="/book-consultation" className="button-white">
-                Book Free Consultation <ArrowUpRight size={14} />
+                Book a Free Consultation <ArrowUpRight size={14} />
               </Link>
               <Link to="/portfolio" className="button-glass-play">
-                View Flagship Work <ArrowUpRight size={14} />
+                See Our Work <ArrowRight size={14} />
               </Link>
             </div>
           </SectionReveal>
@@ -225,10 +225,10 @@ export default function About() {
           </p>
           <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/book-consultation" className="button-white">
-              Book Free Consultation <ArrowUpRight size={14} />
+              Book a Free Consultation <ArrowUpRight size={14} />
             </Link>
-            <Link to="/contact" className="button-glass-play">
-              Send Direct Message →
+            <Link to="/portfolio" className="button-glass-play">
+              See Our Work <ArrowRight size={14} />
             </Link>
           </div>
         </div>

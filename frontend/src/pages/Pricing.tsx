@@ -425,10 +425,10 @@ export default function Pricing() {
           </h2>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', justifyContent: 'center', marginTop: 14 }}>
             <Link to="/book-consultation" className="button-white">
-              Book Free Consultation <ArrowUpRight size={15} />
+              Book a Free Consultation <ArrowUpRight size={15} />
             </Link>
-            <Link to="/contact" className="button-glass-play">
-              Send a Message
+            <Link to="/portfolio" className="button-glass-play">
+              See Our Work <ArrowUpRight size={15} />
             </Link>
           </div>
         </div>

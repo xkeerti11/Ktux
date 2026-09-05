@@ -15,11 +15,10 @@ const LINKS: readonly NavItem[] = [
       ['AI Agents', '/services/ai-agents'],
     ],
   },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Case Studies', href: '/case-studies' },
-  { label: 'Pricing', href: '/pricing' },
+  { label: 'Work', href: '/portfolio' },
+  { label: 'Process', href: '/services' },
   { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Journal', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ] as const;
 
@@ -237,7 +236,7 @@ export function Navbar() {
               minHeight: 36,
             }}
           >
-            Book Free Consultation <ArrowUpRight size={14} />
+            Book a Free Consultation <ArrowUpRight size={14} />
           </Link>
 
           {/* Mobile Hamburger Toggle with 44px tap target */}
@@ -369,7 +368,7 @@ export function Navbar() {
               minHeight: 46,
             }}
           >
-            Book Free Consultation <ArrowUpRight size={15} />
+            Book a Free Consultation <ArrowUpRight size={15} />
           </Link>
         </div>
       )}

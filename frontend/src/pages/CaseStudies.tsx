@@ -18,9 +18,14 @@ function GithubIcon({ size = 16 }: { size?: number }) {
 }
 
 export default function CaseStudies() {
-  const { data, isLoading } = useQuery({
+  const { data } = useQuery({
     queryKey: ['case-studies'],
     queryFn: () => listCaseStudies({ page: 1, limit: 30 }),
+    initialData: {
+      success: true,
+      data: CASE_STUDIES_DATA,
+      pagination: { total: CASE_STUDIES_DATA.length, page: 1, limit: 30, pages: 1 },
+    },
   });
 
   const items = (data?.data?.length ? data.data : CASE_STUDIES_DATA) as ExtendedCaseStudy[];
@@ -35,30 +40,23 @@ export default function CaseStudies() {
         />
       </Helmet>
 
-      <section className="page-hero section-gradient-dark" style={{ background: '#09090B', padding: 'clamp(110px, 16vw, 170px) 24px clamp(40px, 6vw, 60px)', borderBottom: '1px solid #27272a' }}>
+      <section className="page-hero section-gradient-dark" style={{ background: '#050507', paddingTop: 'clamp(110px, 16vw, 170px)', paddingBottom: 'clamp(40px, 6vw, 60px)', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
         <div className="site-container">
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '6px 14px', borderRadius: 999, background: 'rgba(201, 162, 39, 0.12)', border: '1px solid rgba(201, 162, 39, 0.3)', marginBottom: 20 }}>
-            <Sparkles size={15} style={{ color: '#C9A227' }} />
-            <span style={{ color: '#C9A227', fontSize: 13, fontWeight: 700, letterSpacing: '0.05em', textTransform: 'uppercase' }}>The Casebook</span>
-          </div>
-          <h1 className="display" style={{ color: '#FFFFFF', fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 700, lineHeight: 1.2, marginBottom: 16 }}>
-            The Architecture & Decisions<br />
-            <span className="luxury gold">Behind The Outcomes.</span>
+          <span className="talos-pill" style={{ marginBottom: 18 }}>
+            <span className="talos-pill-dot" /> Architectural Breakdowns
+          </span>
+          <h1 className="display" style={{ color: '#FFFFFF', fontSize: 'clamp(32px, 6vw, 56px)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.15, marginTop: 12, marginBottom: 16 }}>
+            Engineering Decisions & Results
           </h1>
-          <p className="section-copy" style={{ color: '#71717A', fontSize: 16, lineHeight: 1.6, maxWidth: 640 }}>
-            Real constraints, security protocols, technical tradeoffs, and the metrics that prove the systems perform.
+          <p className="section-copy" style={{ color: '#8E8E93', fontSize: 16, lineHeight: 1.7, maxWidth: 640 }}>
+            Real constraints, security protocols, technical tradeoffs, and verifiable business metrics proving each system performs under load.
           </p>
         </div>
       </section>
 
-      <section className="section" style={{ background: '#09090B', padding: 'clamp(40px, 6vw, 60px) 24px clamp(60px, 8vw, 100px)' }}>
+      <section className="section" style={{ background: '#050507', padding: 'clamp(40px, 6vw, 60px) 24px clamp(60px, 8vw, 100px)' }}>
         <div className="site-container">
-          {isLoading ? (
-            <div className="content-loading">
-              <span className="spinner" />
-            </div>
-          ) : (
-            <div className="case-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: 24 }}>
+          <div className="case-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: 24 }}>
               {items.map((item, index) => (
                 <SectionReveal key={item._id} delay={index * 0.06}>
                   <div
@@ -161,14 +159,43 @@ export default function CaseStudies() {
                           Read Case Study <ArrowUpRight size={14} />
                         </Link>
                       </div>
+                      </div>
                     </div>
-                  </div>
-                </SectionReveal>
-              ))}
+                  </SectionReveal>
+                ))}
+              </div>
             </div>
-          )}
-        </div>
-      </section>
-    </>
-  );
-}
+          </section>
+
+          {/* ── Bottom CTA ── */}
+          <section
+            style={{
+              background: 'radial-gradient(circle at 50% 30%, rgba(255,255,255,0.06), transparent 60%), #050507',
+              padding: 'clamp(80px, 10vw, 120px) 0',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+              textAlign: 'center',
+            }}
+          >
+            <div className="site-container" style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 20 }}>
+              <span className="talos-pill">
+                <span className="talos-pill-dot" /> Direct Founder Line
+              </span>
+              <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 900, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+                Have a Complex System to Architect?
+              </h2>
+              <p style={{ color: '#8E8E93', fontSize: 16, maxWidth: 520, lineHeight: 1.7 }}>
+                Discuss architecture, security, and sprint timelines directly with our engineering founders.
+              </p>
+              <div style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link to="/book-consultation" className="button-white">
+                  Book a Free Consultation <ArrowUpRight size={14} />
+                </Link>
+                <Link to="/portfolio" className="button-glass-play">
+                  See Our Work <ArrowUpRight size={14} />
+                </Link>
+              </div>
+            </div>
+          </section>
+        </>
+      );
+    }

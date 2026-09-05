@@ -1,18 +1,24 @@
 import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useQuery } from '@tanstack/react-query';
-import { ArrowLeft, ArrowUpRight, Clock, Share2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Clock, Share2 } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import { getBlogPost } from '../lib/api/endpoints';
+import { BLOG_POSTS_DATA } from '../data/blogData';
 
 export default function BlogPost() {
   const { slug = '' } = useParams();
-  const { data: post, isLoading } = useQuery({
+  const { data: apiPost } = useQuery({
     queryKey: ['blog-post', slug],
     queryFn: () => getBlogPost(slug),
     enabled: !!slug,
   });
+
+  const post = useMemo(() => {
+    if (apiPost) return apiPost;
+    return BLOG_POSTS_DATA.find((p) => p.slug === slug || p._id === slug) || null;
+  }, [apiPost, slug]);
 
   /* Enrich headings with IDs for TOC */
   const enriched = useMemo(() => {
@@ -31,12 +37,13 @@ export default function BlogPost() {
     [enriched],
   );
 
-  if (isLoading) return <div className="page-loader"><span className="spinner" /></div>;
   if (!post) return (
-    <div className="empty-state page-empty">
-      <span className="eyebrow">404 / Article not found</span>
-      <h1>That thought<br /><span className="luxury gold">has moved.</span></h1>
-      <Link className="button button-primary" to="/blog">Back to journal <ArrowLeft size={15} /></Link>
+    <div className="empty-state page-empty" style={{ paddingTop: 'clamp(140px, 18vw, 190px)', textAlign: 'center' }}>
+      <span className="talos-pill">Article Not Found</span>
+      <h1 style={{ color: '#FFFFFF', marginTop: 16 }}>That thought has moved.</h1>
+      <Link className="button-white" to="/blog" style={{ marginTop: 24 }}>
+        <ArrowLeft size={15} /> Back to journal
+      </Link>
     </div>
   );
 
@@ -146,9 +153,12 @@ export default function BlogPost() {
               </div>
 
               {/* Related CTA */}
-              <div style={{ marginTop: 40, display: 'flex', justifyContent: 'center' }}>
-                <Link className="button button-primary" to="/contact">
-                  Discuss this with the studio <ArrowUpRight size={15} />
+              <div style={{ marginTop: 40, display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
+                <Link className="button-white" to="/book-consultation">
+                  Book a Free Consultation <ArrowUpRight size={14} />
+                </Link>
+                <Link className="button-glass-play" to="/portfolio">
+                  See Our Work <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
