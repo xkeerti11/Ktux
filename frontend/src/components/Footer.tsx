@@ -1,5 +1,6 @@
-import { ArrowUpRight, CheckCircle2, Mail, MapPin, Phone, Sparkles } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Mail, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { KtuxLogo } from './KtuxLogo';
 
 const columns = [
   {
@@ -57,31 +58,16 @@ export function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             <Link
               to="/"
+              className="ktux-brand-lockup"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: 10,
                 textDecoration: 'none',
                 color: '#FFFFFF',
               }}
+              aria-label="KTUX Home"
             >
-              <div
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: '50%',
-                  background: 'radial-gradient(circle at 30% 30%, #FFFFFF 0%, #71717A 100%)',
-                  display: 'grid',
-                  placeItems: 'center',
-                  boxShadow: '0 0 14px rgba(255,255,255,0.4)',
-                  flexShrink: 0,
-                }}
-              >
-                <Sparkles size={16} color="#050507" />
-              </div>
-              <span style={{ fontSize: 18, fontWeight: 800, letterSpacing: '-0.03em' }}>
-                KTUX<span style={{ color: '#A1A1AA', fontWeight: 500, marginLeft: 4 }}>STUDIO</span>
-              </span>
+              <KtuxLogo variant="wordmark" height={28} />
             </Link>
             <p style={{ color: '#8E8E93', fontSize: 13, lineHeight: 1.7, maxWidth: 300 }}>
               Full-stack AI automation & digital engineering ecosystem built for high-growth modern businesses.
@@ -106,10 +92,7 @@ export function Footer() {
                       color: '#8E8E93',
                       fontSize: 13,
                       textDecoration: 'none',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: 4,
-                      transition: 'color 0.2s',
+                      transition: 'color 0.2s ease',
                     }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
                     onMouseLeave={(e) => (e.currentTarget.style.color = '#8E8E93')}
@@ -121,41 +104,57 @@ export function Footer() {
             </div>
           ))}
 
-          {/* Contact Col */}
+          {/* Direct Line / Contact Column */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <span style={{ color: '#FFFFFF', fontSize: 13, fontWeight: 700, letterSpacing: '0.02em' }}>
-              Direct Contact
+              Direct Line
             </span>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <Link
+                to="/book-consultation"
+                style={{
+                  color: '#C9A227',
+                  fontSize: 13,
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 6,
+                  textDecoration: 'none',
+                }}
+              >
+                Book a Free Consultation <ArrowUpRight size={13} />
+              </Link>
+              <a
+                href="https://wa.me/917992497672"
+                target="_blank"
+                rel="noreferrer noopener"
+                style={{
+                  color: '#8E8E93',
+                  fontSize: 13,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 8,
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#8E8E93')}
+              >
+                <Phone size={14} style={{ color: '#10B981', flexShrink: 0 }} /> WhatsApp Quick Chat
+              </a>
               <a
                 href="mailto:ktuxai@zohomail.in"
                 style={{
                   color: '#8E8E93',
                   fontSize: 13,
-                  textDecoration: 'none',
                   display: 'flex',
                   alignItems: 'center',
                   gap: 8,
+                  textDecoration: 'none',
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#8E8E93')}
               >
                 <Mail size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} /> ktuxai@zohomail.in
-              </a>
-              <a
-                href="tel:+917084499128"
-                style={{
-                  color: '#8E8E93',
-                  fontSize: 13,
-                  textDecoration: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#8E8E93')}
-              >
-                <Phone size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} /> +91 70844 99128
               </a>
               <span style={{ color: '#8E8E93', fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <MapPin size={14} style={{ color: '#FFFFFF', flexShrink: 0 }} /> India · Global Delivery
@@ -166,7 +165,7 @@ export function Footer() {
 
         {/* Massive Outlined Metallic Footer Watermark */}
         <div className="talos-footer-watermark">
-          KTUX STUDIO
+          KTUX
         </div>
 
         {/* Bottom Bar */}
@@ -183,7 +182,7 @@ export function Footer() {
             fontSize: 12,
           }}
         >
-          <span>© {new Date().getFullYear()} KTUX Studio. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} KTUX. All rights reserved.</span>
           <span>Designed with high-contrast precision · Built for scale</span>
         </div>
       </div>

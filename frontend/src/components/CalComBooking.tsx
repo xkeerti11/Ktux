@@ -7,7 +7,7 @@ interface CalComBookingProps {
   title?: string;
 }
 
-export function CalComBooking({ height = 700, title = 'Book a free consultation with KTUX Studio' }: CalComBookingProps) {
+export function CalComBooking({ height = 700, title = 'Book a free consultation with KTUX' }: CalComBookingProps) {
   const [loaded, setLoaded] = useState(false);
   const configured = !env.VITE_CALCOM_BOOKING_URL.includes('/yourname/');
 

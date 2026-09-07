@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="KT Monogram">
+  <defs>
+    <linearGradient id="monogram-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="monogram-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#F4F4F5" />
+      <stop offset="100%" stop-color="#A1A1AA" />
+    </linearGradient>
+    <linearGradient id="monogram-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base Tile -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#monogram-bg)" stroke="url(#monogram-border)" stroke-width="1.5" />
+
+  <!-- Interlocking KT Architectural Ribbon -->
+  <g fill="url(#monogram-gold)">
+    <!-- K Vertical Spine -->
+    <path d="M14 14H20V50H14V14Z" />
+
+    <!-- K Upper Diagonal connecting to T Top Bar -->
+    <path d="M33 14H50V20H25.5L33 14Z" />
+    
+    <!-- T Top Right Extension -->
+    <path d="M36 20H48V25H36V20Z" opacity="0.8" />
+
+    <!-- K Lower Diagonal -->
+    <path d="M21 29L36 50H45L27 26L21 29Z" />
+
+    <!-- T Stem flowing through -->
+    <path d="M40 14H46V42H40V14Z" />
+  </g>
+
+  <!-- Micro Diamond Sparkle Top Corner -->
+  <path d="M52 10 C52 12 54 13 56 13 C54 13 52 14 52 16 C52 14 50 13 48 13 C50 13 52 12 52 10 Z" fill="#FACC15" />
+</svg>

@@ -13,8 +13,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     excerpt:
       'A 1-second delay in page load reduces conversions by 7%. Here is how we engineer sub-1.2 second load times using code-splitting, asset preloading, and modern component architecture.',
     featuredImage: '/images/projects/aurevia.jpg',
+    projectTitle: 'Aurevia Health Platform',
+    liveUrl: 'https://aureviahealth.netlify.app',
     seo: {
-      metaTitle: 'Why Sub-Second Page Speeds Outconvert Generic Templates — KTUX Studio',
+      metaTitle: 'Why Sub-Second Page Speeds Outconvert Generic Templates — KTUX',
       metaDescription: 'Discover how sub-second load times impact enterprise conversions and how modern full-stack web architecture eliminates operational drag.',
       ogImage: '/images/projects/aurevia.jpg',
     },
@@ -51,8 +53,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     excerpt:
       'How modern businesses are moving from simple chatbots to autonomous AI agents that qualify leads, trigger CRM mutations, and execute multi-step business logic 24/7.',
     featuredImage: '/images/projects/fluentai.jpg',
+    projectTitle: 'FluentAI Voice Platform',
+    liveUrl: 'https://fluentai-ten.vercel.app',
     seo: {
-      metaTitle: 'Autonomous AI Agents in 2026 — KTUX Studio',
+      metaTitle: 'Autonomous AI Agents in 2026 — KTUX',
       metaDescription: 'Learn how autonomous AI agents execute multi-step business logic, qualify leads, and synchronize workflows without human latency.',
       ogImage: '/images/projects/fluentai.jpg',
     },
@@ -62,7 +66,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
       <p>An autonomous AI agent is fundamentally different: it is an event-driven system equipped with structured tools, database access, validation schemas, and deterministic fallback logic.</p>
 
       <h2>The Anatomy of a Production AI Agent</h2>
-      <p>When KTUX Studio deploys an autonomous AI system, it operates through a four-stage execution pipeline:</p>
+      <p>When KTUX deploys an autonomous AI system, it operates through a four-stage execution pipeline:</p>
 
       <h3>1. Signal Ingestion & Intent Classification</h3>
       <p>The system listens for inbound signals—a webhook from a form, an incoming WhatsApp message, or an email inquiry. It classifies the intent with strict confidence scoring.</p>
@@ -89,8 +93,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     excerpt:
       'A deep dive into our architecture for Aurevia Health: solving multi-clinic appointment race conditions with PostgreSQL unique constraints and AES-256-GCM medical record encryption.',
     featuredImage: '/images/projects/aurevia.jpg',
+    projectTitle: 'Aurevia Health Clinical Engine',
+    liveUrl: 'https://aureviahealth.netlify.app',
     seo: {
-      metaTitle: 'Atomic Database Slot Locks in Healthcare — KTUX Studio',
+      metaTitle: 'Atomic Database Slot Locks in Healthcare — KTUX',
       metaDescription: 'Deep technical breakdown of Aurevia Health appointment collision prevention and AES-256-GCM cryptography.',
       ogImage: '/images/projects/aurevia.jpg',
     },
@@ -123,8 +129,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     excerpt:
       'Why early-stage teams fail with oversized component libraries and how a compact, token-first design system delivers luxury consistency with rapid shipping velocity.',
     featuredImage: '/images/projects/monarch.jpg',
+    projectTitle: 'Monarch Luxury Platform',
+    liveUrl: 'https://monarch-luxury.vercel.app',
     seo: {
-      metaTitle: 'Design Systems for High-Growth Startups — KTUX Studio',
+      metaTitle: 'Design Systems for High-Growth Startups — KTUX',
       metaDescription: 'How a token-first design system enables rapid shipping and luxury brand consistency.',
       ogImage: '/images/projects/monarch.jpg',
     },
@@ -133,7 +141,7 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
       <p>Most startups either make the mistake of having no design system (resulting in 14 different button styles and chaotic spacing) or spending 6 months building an overly complex component library that slows every release to a crawl.</p>
 
       <h2>The Token-First Approach</h2>
-      <p>At KTUX Studio, we build compact, token-first design systems centered around five foundational primitives:</p>
+      <p>At KTUX, we build compact, token-first design systems centered around five foundational primitives:</p>
       <ul>
         <li><strong>Color Harmony:</strong> Strict 5-shade dark obsidian palette (#050507, #0C0C10, #14141A) with singular gold (#C9A227) accent.</li>
         <li><strong>8-Point Spacing Grid:</strong> Universal multiples (8, 12, 16, 24, 32, 48, 64, 96px) eliminating random margin guesswork.</li>
@@ -154,8 +162,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     excerpt:
       'Technical breakdown of our ChatSphere platform: combining WebSocket signaling for presence with WebRTC peer-to-peer audio channels for sub-50ms conversational latency.',
     featuredImage: '/images/projects/chatsphere.jpg',
+    projectTitle: 'ChatSphere Real-Time Platform',
+    liveUrl: 'https://chatsphere-iota.vercel.app',
     seo: {
-      metaTitle: 'WebRTC vs WebSocket Architecture — KTUX Studio',
+      metaTitle: 'WebRTC vs WebSocket Architecture — KTUX',
       metaDescription: 'Deep dive into sub-50ms real-time audio and messaging architecture with WebRTC and WebSockets.',
       ogImage: '/images/projects/chatsphere.jpg',
     },
@@ -188,8 +198,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     excerpt:
       'Why high traffic with low consultation bookings is an engineering and positioning problem, not a marketing failure. Four tangible steps to fix your conversion funnel.',
     featuredImage: '/images/projects/fluentai.jpg',
+    projectTitle: 'FluentAI Growth Engine',
+    liveUrl: 'https://fluentai-ten.vercel.app',
     seo: {
-      metaTitle: 'From Traffic to Qualified Pipeline — KTUX Studio',
+      metaTitle: 'From Traffic to Qualified Pipeline — KTUX',
       metaDescription: 'A 4-step technical audit to convert B2B website traffic into qualified high-intent consultation bookings.',
       ogImage: '/images/projects/fluentai.jpg',
     },

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="KTUX Combination Logo">
+  <defs>
+    <linearGradient id="comb-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="comb-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#F4F4F5" />
+      <stop offset="100%" stop-color="#A1A1AA" />
+    </linearGradient>
+    <linearGradient id="comb-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left: KT Monogram Badge -->
+  <g transform="translate(4, 4)">
+    <rect width="56" height="56" rx="13" fill="url(#comb-bg)" stroke="url(#comb-border)" stroke-width="1.5" />
+    
+    <!-- KT Ribbon -->
+    <g fill="url(#comb-gold)">
+      <path d="M13 13H18.5V43H13V13Z" />
+      <path d="M30 13H45V18.5H23L30 13Z" />
+      <path d="M32 18.5H43V23H32V18.5Z" opacity="0.8" />
+      <path d="M19 26.5L32.5 43H41L24.5 24L19 26.5Z" />
+      <path d="M36 13H41.5V36H36V13Z" />
+    </g>
+    <path d="M47 9 C47 10.5 48.5 11.5 50 11.5 C48.5 11.5 47 12.5 47 14 C47 12.5 45.5 11.5 44 11.5 C45.5 11.5 47 10.5 47 9 Z" fill="#FACC15" />
+  </g>
+
+  <!-- Right: KTUX Wordmark -->
+  <g transform="translate(74, 5)" fill="#FFFFFF">
+    <!-- K -->
+    <path d="M10 9H17V45H10V9Z" />
+    <path d="M32 9H41L25.5 28.5L17 28.5L32 9Z" />
+    <path d="M20 25.5L35 45H43.5L26.5 25.5H20Z" />
+
+    <!-- T -->
+    <path d="M50 9H84V16.5H70.5V45H63.5V16.5H50V9Z" />
+
+    <!-- U -->
+    <path d="M91 9H98V34C98 38 100 39.8 105.5 39.8C111 39.8 113 38 113 34V9H120V34C120 42 114.5 45.5 105.5 45.5C96.5 45.5 91 42 91 34V9Z" />
+
+    <!-- X -->
+    <path d="M128 9H136.5L145.5 23.5L154.5 9H163L150.2 27L164 45H155.5L145.5 30.5L135.5 45H127L140.8 27L128 9Z" />
+
+    <!-- Sparkle -->
+    <path d="M174 7 C174 11 178 13.5 180.5 13.5 C178 13.5 174 16 174 20 C174 16 170 13.5 167.5 13.5 C170 13.5 174 11 174 7 Z" fill="#FACC15" />
+  </g>
+</svg>

@@ -1,5 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
-  <rect width="36" height="36" rx="8" fill="#C9A227"/>
-  <path d="M10 18L18 10L22 14L16 20L22 26L18 26L10 18Z" fill="#09090B"/>
-  <path d="M20 12L28 12L28 24L20 24L24 18L20 12Z" fill="#09090B"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="fav-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="fav-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.3)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.08)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Obsidian Container -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#fav-bg)" stroke="url(#fav-border)" stroke-width="1.5" />
+
+  <!-- Architectural K Ribbon Glyph -->
+  <g fill="#FFFFFF">
+    <path d="M16 14H23V50H16V14Z" />
+    <path d="M38 14H48L30 31L23 31L38 14Z" />
+    <path d="M26 28L41 50H50L33 28H26Z" />
+  </g>
+
+  <!-- Gold Sparkle Accent -->
+  <path d="M50 11 C50 12.5 51.5 13.5 53 13.5 C51.5 13.5 50 14.5 50 16 C50 14.5 48.5 13.5 47 13.5 C48.5 13.5 50 12.5 50 11 Z" fill="#FACC15" />
 </svg>

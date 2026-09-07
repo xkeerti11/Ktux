@@ -31,10 +31,10 @@ export default function AiAssistant() {
   return (
     <>
       <Helmet>
-        <title>AI Concierge & Architecture Consultant — KTUX Studio</title>
+        <title>AI Concierge & Architecture Consultant — KTUX</title>
         <meta
           name="description"
-          content="Consult with the KTUX Studio AI Architect about web speed, autonomous AI agents, workflow automation, and custom sprint pricing."
+          content="Consult with the KTUX AI Architect about web speed, autonomous AI agents, workflow automation, and custom sprint pricing."
         />
       </Helmet>
 

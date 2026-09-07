@@ -15,8 +15,8 @@ export default function BookConsultation() {
   return (
     <>
       <Helmet>
-        <title>Book a strategy call - KTUX Studio</title>
-        <meta name="description" content="Schedule a free consultation with KTUX Studio through Cal.com." />
+        <title>Book a strategy call - KTUX</title>
+        <meta name="description" content="Schedule a free consultation with KTUX through Cal.com." />
       </Helmet>
 
       <section className="page-hero light-hero booking-hero">

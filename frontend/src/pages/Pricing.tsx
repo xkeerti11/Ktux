@@ -138,8 +138,8 @@ export default function Pricing() {
   return (
     <>
       <Helmet>
-        <title>Pricing — KTUX Studio</title>
-        <meta name="description" content="Transparent pricing for digital platforms and AI systems from Ktux Studio. Starter, Professional and Enterprise plans." />
+        <title>Pricing — KTUX</title>
+        <meta name="description" content="Transparent pricing for digital platforms and AI systems from KTUX. Starter, Professional and Enterprise plans." />
       </Helmet>
 
       {/* ── Hero ── */}

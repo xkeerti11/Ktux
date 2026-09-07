@@ -77,10 +77,10 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact & Project Inquiries — KTUX Studio</title>
+        <title>Contact & Project Inquiries — KTUX</title>
         <meta
           name="description"
-          content="Get in touch with KTUX Studio founders. Discuss your web development, AI agent, or custom workflow automation project."
+          content="Get in touch with KTUX founders. Discuss your web development, AI agent, or custom workflow automation project."
         />
       </Helmet>
 

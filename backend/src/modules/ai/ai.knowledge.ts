@@ -1,7 +1,7 @@
 export const KTUX_MASTER_SYSTEM_PROMPT = `YOU ARE AN ADVANCED AI SALES & LEAD CONVERSION SPECIALIST FOR KTUX AGENCY (KTUX AI Marketing Studio).
 
 ORGANIZATION DETAILS:
-Name: KTUX AI Marketing Studio (KTUX Studio)
+Name: KTUX AI Marketing Studio (KTUX)
 Founder: Keerti Singh & Senior AI Architects
 Industry: AI-powered SaaS, Web Development, Digital Marketing, AI Automation
 Services: Website Development, AI Automation, Digital Marketing, Branding & Design, Autonomous AI Agents, AI UGC Ads, Consultation & Audit
@@ -10,7 +10,7 @@ Value Proposition: Combining design, technology, and AI for real compounding bus
 
 YOUR ROLE & MISSION:
 You are a senior consultative sales architect, technical advisor, and lead converter.
-Your objective is to understand the visitor's business goals, educate them with enthusiasm and authority, address any objections, qualify their needs, and guide them smoothly toward hiring KTUX Studio by booking a free strategy consultation or reaching out on WhatsApp.
+Your objective is to understand the visitor's business goals, educate them with enthusiasm and authority, address any objections, qualify their needs, and guide them smoothly toward hiring KTUX by booking a free strategy consultation or reaching out on WhatsApp.
 
 ════════════════════════════════════════════════════════════════════════
 PART 1: PERSONALITY & COMMUNICATION STYLE
@@ -117,7 +117,7 @@ export const LOCAL_KNOWLEDGE_BASE: LocalKnowledgeMatch[] = [
   {
     keywords: ['speed', 'fast', 'performance', 'pagespeed', 'loading', 'slow', 'tech stack'],
     response: `### ⚡ High-Performance Digital Architecture
-At **KTUX Studio**, every website is engineered from scratch for extreme speed and conversion:
+At **KTUX**, every website is engineered from scratch for extreme speed and conversion:
 
 - **Sub-1.2s Global Load Speeds**: Built with pure React 19, TypeScript, and modern modular styling — zero bloated WordPress plugins or theme baggage.
 - **95+ Google PageSpeed Score**: Guaranteed Core Web Vitals optimization to rank higher on Google Search from day one.
@@ -152,7 +152,7 @@ We offer clear, milestone-based pricing with measurable ROI:
   },
   {
     keywords: ['service', 'services', 'what do you do', 'capabilities', 'offer', 'build'],
-    response: `### 🚀 KTUX Studio Core Capabilities
+    response: `### 🚀 KTUX Core Capabilities
 We deliver end-to-end digital solutions that drive compounding revenue:
 
 1. 💻 **Website Development** (₹50K — ₹300K+): Sub-1.2s load speeds, SEO schema, and intuitive Admin CMS.
@@ -211,7 +211,7 @@ We eliminate repetitive operational bottlenecks so your team can focus on growth
   {
     keywords: ['founder', 'who are you', 'team', 'keerti', 'about', 'agency', 'company'],
     response: `### 👤 Founder-Led Engineering Advantage
-**KTUX Studio** was founded by **Keerti Singh** and senior AI architects with a clear mission:
+**KTUX** was founded by **Keerti Singh** and senior AI architects with a clear mission:
 *A compact, AI-powered studio can out-execute a bloated 50-person agency in speed, quality, and direct accountability.*
 
 - **Direct Founder Execution**: No junior account managers or endless meetings — you collaborate directly with the builders.
@@ -225,7 +225,7 @@ We eliminate repetitive operational bottlenecks so your team can focus on growth
   {
     keywords: ['consultation', 'book', 'contact', 'call', 'meeting', 'hire', 'start', 'schedule', 'audit'],
     response: `### 📅 Let's Discuss Your Project!
-Getting started with KTUX Studio is simple and direct:
+Getting started with KTUX is simple and direct:
 
 1. **Pick a 30-Minute Slot**: Select a convenient time on our calendar at [Book Free Consultation](/book-consultation).
 2. **Direct WhatsApp Connect**: Message our founder directly at [+91 70844 99128](https://wa.me/917084499128?text=Hi%20KTUX%20Studio,%20I'd%20like%20to%20discuss%20a%20project.).

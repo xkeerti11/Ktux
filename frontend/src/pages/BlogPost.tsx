@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 import { getBlogPost } from '../lib/api/endpoints';
 import { BLOG_POSTS_DATA } from '../data/blogData';
+import { ProjectLivePreview } from '../components/ProjectLivePreview';
 
 export default function BlogPost() {
   const { slug = '' } = useParams();
@@ -55,29 +56,35 @@ export default function BlogPost() {
         {post.seo?.ogImage && <meta property="og:image" content={post.seo.ogImage} />}
       </Helmet>
 
-      <article>
+      <article style={{ background: '#050507' }}>
         {/* ── Article Header (Dark) ── */}
-        <header className="article-header-dark" style={{ background: '#09090B', padding: 'clamp(130px, 16vw, 170px) 24px clamp(40px, 5vw, 60px)', borderBottom: '1px solid #27272a' }}>
-          <div className="site-container" style={{ maxWidth: 900 }}>
-            <Link to="/blog" className="back-link" style={{ color: '#71717A', marginBottom: 24, display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+        <header className="article-header-dark" style={{ background: '#07070A', padding: 'clamp(120px, 15vw, 160px) 20px clamp(36px, 5vw, 50px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+          <div className="site-container" style={{ maxWidth: 900, margin: '0 auto' }}>
+            <Link to="/blog" className="back-link" style={{ color: '#8E8E93', marginBottom: 20, display: 'inline-flex', alignItems: 'center', gap: 6, textDecoration: 'none', fontSize: 14 }}>
               <ArrowLeft size={15} /> Back to journal
             </Link>
-            <div style={{ marginTop: 20 }}>
-              <span className="blog-tag" style={{ background: '#C9A227', color: '#1A1A1A', padding: '6px 14px', borderRadius: 999, fontWeight: 700, fontSize: 12 }}>{post.category}</span>
+            <div style={{ marginTop: 16 }}>
+              <span className="blog-tag" style={{ background: 'rgba(201, 162, 39, 0.15)', color: '#C9A227', border: '1px solid rgba(201, 162, 39, 0.3)', padding: '5px 14px', borderRadius: 999, fontWeight: 700, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                {post.category}
+              </span>
             </div>
-            <h1 style={{ marginTop: 20, marginBottom: 16, color: '#FFFFFF', fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 800, lineHeight: 1.15 }}>{post.title}</h1>
-            <p style={{ fontSize: 'clamp(16px, 2vw, 18px)', color: '#71717A', lineHeight: 1.65, maxWidth: 680, marginBottom: 28 }}>{post.excerpt}</p>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, flexWrap: 'wrap' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#71717A', fontSize: 13 }}>
-                <Clock size={13} style={{ color: '#C9A227' }} /> {post.readTime} min read
+            <h1 style={{ marginTop: 18, marginBottom: 14, color: '#FFFFFF', fontSize: 'clamp(26px, 4.5vw, 48px)', fontWeight: 800, lineHeight: 1.2, letterSpacing: '-0.02em' }}>
+              {post.title}
+            </h1>
+            <p style={{ fontSize: 'clamp(15px, 2vw, 17px)', color: '#8E8E93', lineHeight: 1.65, maxWidth: 740, marginBottom: 24 }}>
+              {post.excerpt}
+            </p>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 14, flexWrap: 'wrap', color: '#71717A', fontSize: 13 }}>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                <Clock size={13} style={{ color: '#C9A227' }} /> {post.readTime || 6} min read
               </span>
-              <span className="meta-dot" style={{ width: 4, height: 4, borderRadius: '50%', background: '#4A4A4E' }} />
-              <span style={{ color: '#71717A', fontSize: 13 }}>
+              <span className="meta-dot" style={{ width: 4, height: 4, borderRadius: '50%', background: '#3F3F46' }} />
+              <span>
                 {post.publishedAt
-                  ? new Date(post.publishedAt).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })
-                  : 'KTUX Studio'}
+                  ? new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+                  : 'KTUX'}
               </span>
-              <span className="meta-dot" style={{ width: 4, height: 4, borderRadius: '50%', background: '#4A4A4E' }} />
+              <span className="meta-dot" style={{ width: 4, height: 4, borderRadius: '50%', background: '#3F3F46' }} />
               <button
                 style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 0, cursor: 'pointer', color: '#71717A', fontSize: 13 }}
                 onClick={() => {
@@ -90,21 +97,19 @@ export default function BlogPost() {
           </div>
         </header>
 
-        {/* ── Featured Image ── */}
-        {post.seo?.ogImage ? (
-          <div style={{ width: '100%', height: 'clamp(240px, 45vw, 550px)', overflow: 'hidden' }}>
-            <img
-              className="article-featured-img"
-              src={post.seo.ogImage}
-              alt={post.title}
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+        {/* ── Featured Live System Viewport ── */}
+        <div className="site-container" style={{ maxWidth: 1000, margin: 'clamp(24px, 4vw, 40px) auto 0', padding: '0 20px' }}>
+          <div style={{ borderRadius: 20, overflow: 'hidden', border: '1px solid #27272A', background: '#0D0D10', boxShadow: '0 20px 50px rgba(0,0,0,0.6)' }}>
+            <ProjectLivePreview
+              liveUrl={post.liveUrl}
+              title={post.projectTitle || post.title}
+              industryTag={post.category}
+              height={360}
+              interactive={false}
+              previewImage={post.featuredImage || post.seo?.ogImage}
             />
           </div>
-        ) : (
-          <div className="article-featured-placeholder" style={{ height: 'clamp(200px, 35vw, 360px)', background: '#18181B', color: '#C9A227', borderBottom: '1px solid #27272A', display: 'grid', placeItems: 'center', fontSize: 48, fontWeight: 800 }}>
-            {post.category.slice(0, 2).toUpperCase()}
-          </div>
-        )}
+        </div>
 
         {/* ── Main Content + TOC ── */}
         <div className="site-container">
@@ -128,7 +133,7 @@ export default function BlogPost() {
               <div className="article-author-bio">
                 <div className="author-avatar-circle">K</div>
                 <div>
-                  <p className="author-bio-name">KTUX Studio</p>
+                  <p className="author-bio-name">KTUX</p>
                   <p className="author-bio-role">AI & Web Development Studio</p>
                   <p className="author-bio-copy">
                     Notes on digital systems, intelligent automation, and building for the long view — from two founders who ship every line themselves.

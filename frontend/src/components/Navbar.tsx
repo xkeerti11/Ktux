@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ArrowUpRight, ChevronDown, Menu, X, Sparkles } from 'lucide-react';
+import { KtuxLogo } from './KtuxLogo';
 
 type NavItem = { label: string; href: string; children?: readonly (readonly [string, string])[] };
 const LINKS: readonly NavItem[] = [
@@ -75,6 +76,7 @@ export function Navbar() {
         {/* Brand Logo */}
         <Link
           to="/"
+          className="ktux-brand-lockup"
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -82,24 +84,10 @@ export function Navbar() {
             textDecoration: 'none',
             color: '#FFFFFF',
           }}
+          aria-label="KTUX Home"
         >
-          <div
-            style={{
-              width: 28,
-              height: 28,
-              borderRadius: '50%',
-              background: 'radial-gradient(circle at 30% 30%, #FFFFFF 0%, #71717A 100%)',
-              display: 'grid',
-              placeItems: 'center',
-              boxShadow: '0 0 12px rgba(255,255,255,0.4)',
-              flexShrink: 0,
-            }}
-          >
-            <Sparkles size={14} color="#050507" />
-          </div>
-          <span style={{ fontSize: 'clamp(14px, 2vw, 16px)', fontWeight: 800, letterSpacing: '-0.03em' }}>
-            KTUX<span style={{ color: '#A1A1AA', fontWeight: 500, marginLeft: 3 }}>STUDIO</span>
-          </span>
+          <KtuxLogo variant="k-mark" height={32} />
+          <KtuxLogo variant="wordmark" height={22} className="hide-on-very-small" />
         </Link>
 
         {/* Center Nav Links */}

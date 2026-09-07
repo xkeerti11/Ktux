@@ -3,6 +3,7 @@ import { Bot, MessageCircle, Send, X, RotateCcw, ArrowUpRight } from 'lucide-rea
 import { Link } from 'react-router-dom';
 import { useAiChat } from '../hooks/useAiChat';
 import { formatAiMessage } from '../lib/renderMarkdown';
+import { KtuxLogo } from './KtuxLogo';
 
 const QUICK_ACTIONS = [
   'Website Speed & Tech',
@@ -33,8 +34,8 @@ export function AIChatbotWidget() {
         <section className="chat-widget glass" aria-label="KTUX AI Concierge">
           <header className="chat-header">
             <div className="chat-agent">
-              <span className="chat-avatar">
-                <Bot size={19} />
+              <span className="chat-avatar" style={{ background: 'transparent', padding: 0, overflow: 'hidden' }}>
+                <KtuxLogo variant="k-mark" height={28} />
               </span>
               <span>
                 <strong>KTUX CONCIERGE</strong>
@@ -56,8 +57,8 @@ export function AIChatbotWidget() {
           <div className="chat-stream">
             {messages.map((message, index) => (
               <div className={`chat-message ${message.role}`} key={`${message.role}-${index}`}>
-                <span className="chat-message-avatar">
-                  {message.role === 'assistant' ? <Bot size={14} /> : 'U'}
+                <span className="chat-message-avatar" style={{ background: message.role === 'assistant' ? 'transparent' : undefined }}>
+                  {message.role === 'assistant' ? <KtuxLogo variant="k-mark" height={20} /> : 'U'}
                 </span>
                 <div>
                   <div

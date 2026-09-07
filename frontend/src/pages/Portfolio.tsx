@@ -78,7 +78,7 @@ export default function Portfolio() {
   return (
     <>
       <Helmet>
-        <title>Portfolio & Production Systems — KTUX Studio</title>
+        <title>Portfolio & Production Systems — KTUX</title>
         <meta
           name="description"
           content="Explore our flagship full-stack production platforms, AI voice tutors, real-time WebRTC ecosystems, and luxury digital platforms."

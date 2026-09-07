@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, Bot, Lightbulb, Rocket, ShieldCheck, Sparkles
 import { Link } from 'react-router-dom';
 import { SectionReveal } from '../components/SectionReveal';
 import { FounderCard } from '../components/FounderCard';
+import { KtuxLogo } from '../components/KtuxLogo';
 
 const stats = [
   { number: '100+', label: 'Happy clients across industries' },
@@ -16,7 +17,7 @@ const story = [
     eyebrow: 'Our Philosophy',
     title: 'Built differently from traditional agencies.',
     body: [
-      'KTUX Studio was founded on a simple conviction: ambitious businesses do not need a bloated 50-person agency with junior account managers and 6-month timelines. They need direct senior engineering and sharp systems thinking.',
+      'KTUX was founded on a simple conviction: ambitious businesses do not need a bloated 50-person agency with junior account managers and 6-month timelines. They need direct senior engineering and sharp systems thinking.',
       'By pairing deep architectural discipline with modern AI-assisted velocity, we deliver production-ready web flagships and autonomous workflows in weeks, not months.',
     ],
   },
@@ -43,10 +44,10 @@ export default function About() {
   return (
     <>
       <Helmet>
-        <title>About KTUX Studio — Founders & AI Philosophy</title>
+        <title>About KTUX — Founders & AI Philosophy</title>
         <meta
           name="description"
-          content="Meet the founders behind KTUX Studio. We engineer full-stack platforms, autonomous AI agents, and custom workflow automations."
+          content="Meet the founders behind KTUX. We engineer full-stack platforms, autonomous AI agents, and custom workflow automations."
         />
       </Helmet>
 
@@ -64,6 +65,9 @@ export default function About() {
 
         <div className="site-container" style={{ maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 2 }}>
           <SectionReveal>
+            <div style={{ marginBottom: 24 }}>
+              <KtuxLogo variant="combination" height={44} ariaLabel="KTUX Official Identity" />
+            </div>
             <span className="talos-pill" style={{ marginBottom: 18 }}>
               <span className="talos-pill-dot" /> Founder-Led AI Studio
             </span>

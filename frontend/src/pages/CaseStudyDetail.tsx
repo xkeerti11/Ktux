@@ -71,7 +71,7 @@ export default function CaseStudyDetail() {
   return (
     <>
       <Helmet>
-        <title>{item.title} — Flagship Case Study | KTUX Studio</title>
+        <title>{item.title} — Flagship Case Study | KTUX</title>
         <meta name="description" content={item.overview} />
       </Helmet>
 

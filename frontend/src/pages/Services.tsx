@@ -118,8 +118,8 @@ export default function Services() {
   return (
     <>
       <Helmet>
-        <title>Services — KTUX Studio</title>
-        <meta name="description" content="Website development, AI automation, branding and creative systems for modern businesses. Premium digital solutions from Ktux Studio." />
+        <title>Services — KTUX</title>
+        <meta name="description" content="Website development, AI automation, branding and creative systems for modern businesses. Premium digital solutions from KTUX." />
       </Helmet>
 
       {/* ── Hero ── */}

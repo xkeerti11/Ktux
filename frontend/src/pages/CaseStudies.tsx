@@ -33,7 +33,7 @@ export default function CaseStudies() {
   return (
     <>
       <Helmet>
-        <title>Case Studies & Architectural Breakdowns — KTUX Studio</title>
+        <title>Case Studies & Architectural Breakdowns — KTUX</title>
         <meta
           name="description"
           content="The architectural decisions, security guardrails, and measurable outcomes behind selected KTUX engagements."

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="KTUX K Mark">
+  <defs>
+    <linearGradient id="kmark-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#09090B" />
+    </linearGradient>
+    <linearGradient id="kmark-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#E4E4E7" />
+      <stop offset="100%" stop-color="#71717A" />
+    </linearGradient>
+    <linearGradient id="kmark-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.06)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Squircle Base Tile -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#kmark-bg)" stroke="url(#kmark-border)" stroke-width="1.5" />
+
+  <!-- Architectural K Ribbon Glyph -->
+  <g fill="url(#kmark-gold)">
+    <!-- Vertical Spine -->
+    <path d="M16 14H23V50H16V14Z" />
+    <!-- Upper Diagonal Arm -->
+    <path d="M38 14H48L30 31L23 31L38 14Z" />
+    <!-- Lower Diagonal Leg -->
+    <path d="M26 28L41 50H50L33 28H26Z" />
+  </g>
+
+  <!-- Accent Sparkle -->
+  <path d="M50 11 C50 12.5 51.5 13.5 53 13.5 C51.5 13.5 50 14.5 50 16 C50 14.5 48.5 13.5 47 13.5 C48.5 13.5 50 12.5 50 11 Z" fill="#FACC15" />
+</svg>

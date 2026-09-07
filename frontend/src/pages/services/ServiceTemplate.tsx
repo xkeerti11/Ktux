@@ -50,7 +50,7 @@ export function ServiceTemplate({ config }: { config: ServiceConfig }) {
     name: config.title,
     provider: {
       '@type': 'Organization',
-      name: 'KTUX Studio',
+      name: 'KTUX',
       url: 'https://ktux.com',
     },
     description: config.description,
@@ -59,7 +59,7 @@ export function ServiceTemplate({ config }: { config: ServiceConfig }) {
   return (
     <>
       <Helmet>
-        <title>{config.title} — KTUX Studio</title>
+        <title>{config.title} — KTUX</title>
         <meta name="description" content={config.description} />
         <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>

@@ -148,7 +148,7 @@ const testimonials = [
     name: 'Vikram Mehta',
     role: 'Founder & CEO, Apex Realty Group',
     quote:
-      'KTUX Studio built a luxury real estate platform that doubled our inbound inquiries in the first month. The speed, design aesthetic, and engineering quality are exceptional.',
+      'KTUX built a luxury real estate platform that doubled our inbound inquiries in the first month. The speed, design aesthetic, and engineering quality are exceptional.',
     rating: 5,
   },
   {
@@ -162,7 +162,7 @@ const testimonials = [
     name: 'David Chen',
     role: 'CTO, Nexus Healthcare',
     quote:
-      'Zero-collision booking locks and enterprise-grade encryption out of the box. KTUX Studio is our go-to partner for all critical digital platforms.',
+      'Zero-collision booking locks and enterprise-grade encryption out of the box. KTUX is our go-to partner for all critical digital platforms.',
     rating: 5,
   },
 ];
@@ -173,7 +173,7 @@ export default function Home() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
-    name: 'KTUX Studio',
+    name: 'KTUX',
     url: 'https://ktux.com',
     logo: 'https://ktux.com/favicon.svg',
     description:
@@ -186,7 +186,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>KTUX Studio — Premium Digital Solutions for Modern Businesses</title>
+        <title>KTUX — Premium Digital Solutions for Modern Businesses</title>
         <meta
           name="description"
           content="Premium full-stack web development, custom AI automation, branding, and AI systems engineered for modern ambitious businesses."
