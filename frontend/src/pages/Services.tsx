@@ -8,6 +8,112 @@ import {
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SectionReveal } from '../components/SectionReveal';
+import { CoverflowCarousel } from '../components/CoverflowCarousel';
+
+export interface CarouselService {
+  id: string;
+  badge: string;
+  title: string;
+  description: string;
+  accentMetric: string;
+  icon: string;
+  chips: string[];
+  prices: Array<{ tier: string; price: string }>;
+  detailHref: string;
+}
+
+const CAROUSEL_SERVICES: CarouselService[] = [
+  {
+    id: 'web-dev',
+    badge: 'Web Engineering',
+    title: 'Premium Website Development',
+    description: 'Sub-second loading, SEO-engineered, luxury web platforms built with React, TypeScript, and modern CMS admin panels to turn visitors into qualified clients.',
+    accentMetric: '< 1.2S LOAD SPEED',
+    icon: '💻',
+    chips: ['Sub-1.2s Speed', 'Custom React & TS', 'CMS Admin Panel', 'Technical SEO'],
+    prices: [
+      { tier: 'Starter (5 Pages)', price: '₹25,000' },
+      { tier: 'Professional', price: '₹65,000' },
+      { tier: 'Enterprise', price: 'Custom / Bespoke' },
+    ],
+    detailHref: '/services/website-development',
+  },
+  {
+    id: 'ai-automation',
+    badge: 'AI Automation',
+    title: 'Autonomous AI Operations & Workflows',
+    description: 'Eliminate manual bottlenecks with custom AI pipelines, automated lead triage, multi-agent CRM synchronisation, and real-time webhook operations.',
+    accentMetric: '10X FASTER TRIAGE',
+    icon: '⚡',
+    chips: ['Lead Qualification', 'CRM Sync', 'Instant WhatsApp/Email', 'Multi-Agent Routing'],
+    prices: [
+      { tier: 'Starter Pipeline', price: '₹15,000' },
+      { tier: 'Growth Ops', price: '₹35,000' },
+      { tier: 'Enterprise Swarm', price: '₹75,000+' },
+    ],
+    detailHref: '/services/ai-automation',
+  },
+  {
+    id: 'ai-ugc-ads',
+    badge: 'AI Video Systems',
+    title: 'AI UGC Video Ads & Creative Engines',
+    description: 'Hyper-realistic AI UGC video creatives, multi-hook variations, and high-converting ad assets engineered for Meta, TikTok, and YouTube Shorts.',
+    accentMetric: 'HIGH ROAS ENGINE',
+    icon: '🎥',
+    chips: ['AI UGC Creatives', 'Meta & TikTok Hooks', 'Multi-Lingual Audio', 'Commercial Rights'],
+    prices: [
+      { tier: 'Starter (5 Vids)', price: '₹24,999' },
+      { tier: 'Growth (12 Vids)', price: '₹49,999' },
+      { tier: 'Scale (25 Vids)', price: '₹89,999+' },
+    ],
+    detailHref: '/services/ai-ugc-ads',
+  },
+  {
+    id: 'branding',
+    badge: 'Visual Identity',
+    title: 'Obsidian Luxury Brand Systems',
+    description: 'From strategic market positioning to bespoke visual identity systems, motion guidelines, and high-authority assets that build instant client trust.',
+    accentMetric: 'INSTANT AUTHORITY',
+    icon: '🎨',
+    chips: ['Brand Strategy', 'Visual Identity', 'Motion Guidelines', 'Design System'],
+    prices: [
+      { tier: 'Starter Suite', price: '₹20,000' },
+      { tier: 'Studio System', price: '₹45,000' },
+      { tier: 'Enterprise Rebrand', price: '₹85,000+' },
+    ],
+    detailHref: '/services/branding',
+  },
+  {
+    id: 'ai-agents',
+    badge: 'AI Autonomous Agents',
+    title: '24/7 Autonomous AI Agents',
+    description: 'Deploy domain-specific AI agents that search company knowledge bases, qualify inbound leads, schedule consultations, and execute tasks 24/7.',
+    accentMetric: '24/7 ZERO DOWNTIME',
+    icon: '🤖',
+    chips: ['24/7 Autonomous', 'RAG Knowledge Base', 'Cal.com Slot Lock', 'Tool Calling'],
+    prices: [
+      { tier: 'Starter Agent', price: '₹25,000' },
+      { tier: 'Autonomous Agent', price: '₹55,000' },
+      { tier: 'Agent Swarm', price: '₹95,000+' },
+    ],
+    detailHref: '/services/ai-agents',
+  },
+  {
+    id: 'growth-suite',
+    badge: 'Studio Partnership',
+    title: 'All-In-One Studio Partnership',
+    description: 'Complete end-to-end partner covering website engineering, AI automation, weekly deployments, Core Web Vitals maintenance, and dedicated leadership.',
+    accentMetric: 'DEDICATED TECH LEAD',
+    icon: '🚀',
+    chips: ['Dedicated Tech Lead', 'Weekly Deploys', 'Core Web Vitals 95+', 'Continuous CRO'],
+    prices: [
+      { tier: 'Monthly Retainer', price: '₹65,000/mo' },
+      { tier: 'Growth Retainer', price: '₹1,20,000/mo' },
+      { tier: 'Custom SLA', price: 'Bespoke' },
+    ],
+    detailHref: '/pricing',
+  },
+];
 
 /* ── Data ─────────────────────────────────────────────────── */
 const problems = [
@@ -147,6 +253,244 @@ export default function Services() {
               </div>
             </SectionReveal>
           </div>
+        </div>
+      </section>
+
+      {/* ── 3D Services Coverflow Carousel Section ── */}
+      <section
+        id="services-carousel"
+        className="section section-dark"
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 162, 39, 0.08), #09090B 70%)',
+          borderBottom: '1px solid #27272A',
+          paddingTop: 'clamp(40px, 6vw, 70px)',
+          paddingBottom: 'clamp(50px, 7vw, 90px)',
+          overflow: 'hidden',
+        }}
+      >
+        <div className="site-container">
+          <SectionReveal>
+            <div style={{ textAlign: 'center', marginBottom: 28 }}>
+              <span className="eyebrow" style={{ color: '#C9A227' }}>Interactive Service Studio</span>
+              <h2 className="section-title" style={{ marginTop: 14, color: '#FFFFFF' }}>
+                Flagship Services &amp; <span className="luxury gold" style={{ color: '#C9A227' }}>Transparent Pricing</span>
+              </h2>
+              <p style={{ color: '#A1A1AA', maxWidth: 620, margin: '14px auto 0', fontSize: 16, lineHeight: 1.7 }}>
+                Explore our full-stack engineering, AI automation pipelines, video systems, and luxury brand architecture with transparent tiered pricing.
+              </p>
+            </div>
+          </SectionReveal>
+
+          {/* 3D Coverflow Carousel Component */}
+          <CoverflowCarousel
+            items={CAROUSEL_SERVICES}
+            stageHeight={540}
+            renderItem={(svc, isActive) => (
+              <div
+                style={{
+                  width: '100%',
+                  background: 'linear-gradient(160deg, rgba(22, 22, 30, 0.97), rgba(12, 12, 16, 0.99))',
+                  border: isActive
+                    ? '1.5px solid rgba(201, 162, 39, 0.7)'
+                    : '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: 24,
+                  boxShadow: isActive
+                    ? '0 30px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(201, 162, 39, 0.18)'
+                    : '0 20px 45px rgba(0, 0, 0, 0.6)',
+                  padding: 'clamp(22px, 3.5vw, 36px)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 16,
+                  backdropFilter: 'blur(20px)',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  overflow: 'hidden',
+                }}
+              >
+                {/* Top Badge & Metric Row */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 8,
+                      background: 'rgba(201, 162, 39, 0.1)',
+                      border: '1px solid rgba(201, 162, 39, 0.3)',
+                      borderRadius: 100,
+                      padding: '5px 14px',
+                      color: 'var(--color-gold, #C9A227)',
+                      fontSize: 12,
+                      fontWeight: 700,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    <span style={{ fontSize: 14 }}>{svc.icon}</span>
+                    <span>{svc.badge}</span>
+                  </div>
+
+                  <span
+                    style={{
+                      fontSize: 11,
+                      fontWeight: 700,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: '#E4E4E7',
+                      background: 'rgba(255, 255, 255, 0.06)',
+                      padding: '4px 10px',
+                      borderRadius: 6,
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                    }}
+                  >
+                    {svc.accentMetric}
+                  </span>
+                </div>
+
+                {/* Service Title & Description */}
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: 'clamp(22px, 2.5vw, 28px)',
+                      color: '#FFFFFF',
+                      fontWeight: 700,
+                      lineHeight: 1.2,
+                      margin: '4px 0 10px',
+                    }}
+                  >
+                    {svc.title}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: 14.5,
+                      color: '#A1A1AA',
+                      lineHeight: 1.65,
+                      margin: 0,
+                    }}
+                  >
+                    {svc.description}
+                  </p>
+                </div>
+
+                {/* Feature Chips / Pills */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  {svc.chips.map((chip) => (
+                    <span
+                      key={chip}
+                      style={{
+                        fontSize: 12,
+                        padding: '5px 12px',
+                        borderRadius: 100,
+                        background: 'rgba(255, 255, 255, 0.04)',
+                        border: '1px solid rgba(201, 162, 39, 0.2)',
+                        color: '#FAFAF8',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Tiered Pricing Boxes (Matching Video Layout) */}
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+                    gap: 10,
+                    marginTop: 4,
+                  }}
+                >
+                  {svc.prices.map((p) => (
+                    <div
+                      key={p.tier}
+                      style={{
+                        background: 'rgba(201, 162, 39, 0.05)',
+                        border: '1px solid rgba(201, 162, 39, 0.25)',
+                        borderRadius: 12,
+                        padding: '10px 12px',
+                        textAlign: 'left',
+                        backdropFilter: 'blur(8px)',
+                      }}
+                    >
+                      <small
+                        style={{
+                          display: 'block',
+                          fontSize: 11,
+                          color: '#A1A1AA',
+                          fontWeight: 500,
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {p.tier}
+                      </small>
+                      <b
+                        style={{
+                          display: 'block',
+                          fontSize: 'clamp(14px, 1.3vw, 16px)',
+                          color: 'var(--color-gold, #C9A227)',
+                          marginTop: 4,
+                          fontFamily: 'var(--font-heading)',
+                          fontWeight: 700,
+                          letterSpacing: '-0.01em',
+                        }}
+                      >
+                        {p.price}
+                      </b>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Action Buttons Row */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 12,
+                    marginTop: 'auto',
+                    paddingTop: 10,
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  <Link
+                    to="/book-consultation"
+                    className="button-white"
+                    style={{
+                      padding: '10px 22px',
+                      borderRadius: 100,
+                      fontSize: 13,
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 6,
+                    }}
+                  >
+                    Start Now <ArrowUpRight size={14} />
+                  </Link>
+
+                  <Link
+                    to={svc.detailHref}
+                    style={{
+                      color: 'var(--color-gold, #C9A227)',
+                      fontSize: 13,
+                      fontWeight: 600,
+                      textDecoration: 'none',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: 4,
+                      transition: 'opacity 0.2s',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
+                    onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                  >
+                    Deep Dive Details <ArrowUpRight size={13} />
+                  </Link>
+                </div>
+              </div>
+            )}
+          />
         </div>
       </section>
 

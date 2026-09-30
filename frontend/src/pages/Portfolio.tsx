@@ -7,6 +7,7 @@ import { listCaseStudies } from '../lib/api/endpoints';
 import { CASE_STUDIES_DATA, type ExtendedCaseStudy } from '../data/caseStudiesData';
 import { ProjectLivePreview } from '../components/ProjectLivePreview';
 import { SectionReveal } from '../components/SectionReveal';
+import { CoverflowCarousel } from '../components/CoverflowCarousel';
 
 function GithubIcon({ size = 16 }: { size?: number }) {
   return (
@@ -126,6 +127,147 @@ export default function Portfolio() {
               Explore live production platforms spanning healthcare clinical systems, conversational voice AI, sub-50ms WebRTC messaging, and luxury real estate engines.
             </p>
           </SectionReveal>
+        </div>
+      </section>
+
+      {/* ── 3D Flagship Work Coverflow Carousel ── */}
+      <section
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201, 162, 39, 0.08), #050507 70%)',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+          paddingTop: 'clamp(36px, 5vw, 60px)',
+          paddingBottom: 'clamp(40px, 6vw, 70px)',
+          overflow: 'hidden',
+        }}
+      >
+        <div className="site-container" style={{ maxWidth: 1200, margin: '0 auto' }}>
+          <SectionReveal>
+            <div style={{ textAlign: 'center', marginBottom: 24 }}>
+              <span className="talos-pill" style={{ display: 'inline-flex', marginBottom: 12 }}>
+                <span className="talos-pill-dot" /> Flagship Work Showcase
+              </span>
+              <h2
+                style={{
+                  fontSize: 'clamp(26px, 4vw, 42px)',
+                  fontWeight: 800,
+                  letterSpacing: '-0.03em',
+                  color: '#FFFFFF',
+                  margin: '8px 0',
+                }}
+              >
+                Interactive Production <span style={{ color: 'var(--color-gold, #C9A227)' }}>Showcase</span>
+              </h2>
+              <p style={{ color: '#8E8E93', fontSize: 15, maxWidth: 560, margin: '8px auto 0' }}>
+                Swipe through our live production systems, enterprise architecture, and verified client outcomes.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <CoverflowCarousel
+            items={CASE_STUDIES_DATA}
+            stageHeight={500}
+            renderItem={(study, isActive) => (
+              <div
+                style={{
+                  width: '100%',
+                  background: '#09090D',
+                  border: isActive
+                    ? '1.5px solid rgba(201, 162, 39, 0.75)'
+                    : '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: 22,
+                  boxShadow: isActive
+                    ? '0 30px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(201, 162, 39, 0.22)'
+                    : '0 20px 45px rgba(0, 0, 0, 0.6)',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                {/* Full Live Website Preview of the provided link */}
+                <div style={{ width: '100%', height: 420, position: 'relative' }}>
+                  <ProjectLivePreview
+                    liveUrl={study.liveUrl}
+                    title={study.title}
+                    industryTag={study.industryTag}
+                    height={420}
+                    previewImage={study.images?.[0]}
+                  />
+                </div>
+
+                {/* Sleek Minimal Bottom Bar */}
+                <div
+                  style={{
+                    padding: '12px 20px',
+                    background: 'rgba(15, 15, 20, 0.98)',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 12,
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ fontSize: 15, fontWeight: 700, color: '#FFFFFF' }}>{study.title}</span>
+                    <span
+                      style={{
+                        fontSize: 11,
+                        color: 'var(--color-gold, #C9A227)',
+                        background: 'rgba(201, 162, 39, 0.1)',
+                        border: '1px solid rgba(201, 162, 39, 0.25)',
+                        borderRadius: 100,
+                        padding: '2px 8px',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {study.industryTag}
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Link
+                      to={`/case-studies/${study.slug}`}
+                      style={{
+                        color: '#A1A1AA',
+                        fontSize: 12.5,
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 4,
+                        transition: 'color 0.2s',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#A1A1AA')}
+                    >
+                      Details <ArrowUpRight size={13} />
+                    </Link>
+
+                    {study.liveUrl && (
+                      <a
+                        href={study.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button-white"
+                        style={{
+                          padding: '6px 14px',
+                          borderRadius: 100,
+                          fontSize: 12,
+                          fontWeight: 700,
+                          textDecoration: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 5,
+                        }}
+                      >
+                        Open Live <ExternalLink size={12} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          />
         </div>
       </section>
 

@@ -5,17 +5,8 @@ import { KtuxLogo } from './KtuxLogo';
 
 type NavItem = { label: string; href: string; children?: readonly (readonly [string, string])[] };
 const LINKS: readonly NavItem[] = [
-  {
-    label: 'Services',
-    href: '/services',
-    children: [
-      ['Website Development', '/services/website-development'],
-      ['AI Automation', '/services/ai-automation'],
-      ['AI UGC Ads', '/services/ai-ugc-ads'],
-      ['Branding', '/services/branding'],
-      ['AI Agents', '/services/ai-agents'],
-    ],
-  },
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/services' },
   { label: 'Work', href: '/portfolio' },
   { label: 'Process', href: '/services' },
   { label: 'About', href: '/about' },
@@ -188,6 +179,7 @@ export function Navbar() {
               <NavLink
                 key={link.label}
                 to={link.href}
+                end={link.href === '/'}
                 style={({ isActive }) => ({
                   color: isActive ? '#FFFFFF' : '#A1A1AA',
                   fontSize: 13,
@@ -197,7 +189,8 @@ export function Navbar() {
                 })}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
                 onMouseLeave={(e) => {
-                  if (!location.pathname.startsWith(link.href)) {
+                  const isCurrent = link.href === '/' ? location.pathname === '/' : location.pathname.startsWith(link.href);
+                  if (!isCurrent) {
                     e.currentTarget.style.color = '#A1A1AA';
                   }
                 }}

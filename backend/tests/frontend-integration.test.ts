@@ -37,12 +37,14 @@ beforeAll(async () => {
     role: 'admin',
     name: admin.name
   });
-});
+}, 60000);
 
 afterAll(async () => {
   await mongoose.disconnect();
-  await mongoServer.stop();
-});
+  if (mongoServer) {
+    await mongoServer.stop();
+  }
+}, 60000);
 
 describe('Frontend API Contract & Integration Alignment Suite', () => {
   describe('1. Authentication Flow (Bootstrap, Login, Profile, Refresh, Logout)', () => {

@@ -9,6 +9,7 @@ import {
   Check,
   ChevronDown,
   Code2,
+  ExternalLink,
   HeartHandshake,
   Layers3,
   Lightbulb,
@@ -28,6 +29,7 @@ import { ProjectLivePreview } from '../components/ProjectLivePreview';
 import { SectionReveal } from '../components/SectionReveal';
 import { RoiCalculator } from '../components/RoiCalculator';
 import { SolutionFinder } from '../components/SolutionFinder';
+import { CoverflowCarousel } from '../components/CoverflowCarousel';
 
 // ── PRD Section 1.2: Services ──
 const services = [
@@ -832,51 +834,111 @@ export default function Home() {
             </Link>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 20 }}>
-            {projects.map((project) => (
-              <Link
-                key={project.title}
-                to={`/case-studies/${project.slug}`}
+          <CoverflowCarousel
+            items={projects}
+            stageHeight={500}
+            renderItem={(project, isActive) => (
+              <div
                 style={{
-                  background: '#0A0A0E',
-                  border: '1px solid rgba(255,255,255,0.08)',
-                  borderRadius: 20,
+                  width: '100%',
+                  background: '#09090D',
+                  border: isActive
+                    ? '1.5px solid rgba(201, 162, 39, 0.75)'
+                    : '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: 22,
+                  boxShadow: isActive
+                    ? '0 30px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(201, 162, 39, 0.22)'
+                    : '0 20px 45px rgba(0, 0, 0, 0.6)',
                   overflow: 'hidden',
-                  textDecoration: 'none',
                   display: 'flex',
                   flexDirection: 'column',
                   transition: 'all 0.3s ease',
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.25)';
-                  e.currentTarget.style.transform = 'translateY(-4px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
-                  e.currentTarget.style.transform = 'none';
-                }}
               >
-                <div style={{ height: 210, overflow: 'hidden' }}>
+                {/* Full Live Website Preview of the provided link */}
+                <div style={{ width: '100%', height: 420, position: 'relative' }}>
                   <ProjectLivePreview
                     liveUrl={project.liveUrl}
                     title={project.title}
                     industryTag={project.industry}
-                    height={210}
+                    height={420}
                     previewImage={project.image}
                   />
                 </div>
-                <div style={{ padding: 20, display: 'flex', flexDirection: 'column', gap: 6 }}>
-                  <span style={{ color: '#8E8E93', fontSize: 11, fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-                    {project.industry}
-                  </span>
-                  <h3 style={{ fontSize: 18, fontWeight: 800, color: '#FFFFFF' }}>{project.title}</h3>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#22C55E', fontSize: 11, fontWeight: 700, marginTop: 4 }}>
-                    <Check size={13} /> {project.metric}
+
+                {/* Sleek Minimal Bottom Bar */}
+                <div
+                  style={{
+                    padding: '12px 20px',
+                    background: 'rgba(15, 15, 20, 0.98)',
+                    borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 12,
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <span style={{ fontSize: 15, fontWeight: 700, color: '#FFFFFF' }}>{project.title}</span>
+                    <span
+                      style={{
+                        fontSize: 11,
+                        color: 'var(--color-gold, #C9A227)',
+                        background: 'rgba(201, 162, 39, 0.1)',
+                        border: '1px solid rgba(201, 162, 39, 0.25)',
+                        borderRadius: 100,
+                        padding: '2px 8px',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {project.industry}
+                    </span>
+                  </div>
+
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Link
+                      to={`/case-studies/${project.slug}`}
+                      style={{
+                        color: '#A1A1AA',
+                        fontSize: 12.5,
+                        fontWeight: 600,
+                        textDecoration: 'none',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 4,
+                        transition: 'color 0.2s',
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+                      onMouseLeave={(e) => (e.currentTarget.style.color = '#A1A1AA')}
+                    >
+                      Case Study <ArrowUpRight size={13} />
+                    </Link>
+
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="button-white"
+                        style={{
+                          padding: '6px 14px',
+                          borderRadius: 100,
+                          fontSize: 12,
+                          fontWeight: 700,
+                          textDecoration: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 5,
+                        }}
+                      >
+                        Open Live <ExternalLink size={12} />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+            )}
+          />
         </div>
       </section>
 
