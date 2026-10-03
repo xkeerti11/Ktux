@@ -165,7 +165,7 @@ export default function Portfolio() {
 
           <CoverflowCarousel
             items={CASE_STUDIES_DATA}
-            stageHeight={500}
+            stageHeight={480}
             renderItem={(study, isActive) => (
               <div
                 style={{
@@ -184,13 +184,13 @@ export default function Portfolio() {
                   transition: 'all 0.3s ease',
                 }}
               >
-                {/* Full Live Website Preview of the provided link */}
-                <div style={{ width: '100%', height: 420, position: 'relative' }}>
+                {/* Full Live Website Preview with Responsive Aspect/Height */}
+                <div style={{ width: '100%', height: 'clamp(230px, 45vw, 420px)', position: 'relative' }}>
                   <ProjectLivePreview
                     liveUrl={study.liveUrl}
                     title={study.title}
                     industryTag={study.industryTag}
-                    height={420}
+                    height="100%"
                     previewImage={study.images?.[0]}
                   />
                 </div>
@@ -198,38 +198,51 @@ export default function Portfolio() {
                 {/* Sleek Minimal Bottom Bar */}
                 <div
                   style={{
-                    padding: '12px 20px',
+                    padding: 'clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 20px)',
                     background: 'rgba(15, 15, 20, 0.98)',
                     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: 12,
+                    gap: 10,
+                    flexWrap: 'wrap',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ fontSize: 15, fontWeight: 700, color: '#FFFFFF' }}>{study.title}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
                     <span
                       style={{
-                        fontSize: 11,
+                        fontSize: 'clamp(13px, 2vw, 15px)',
+                        fontWeight: 700,
+                        color: '#FFFFFF',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {study.title}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 10.5,
                         color: 'var(--color-gold, #C9A227)',
                         background: 'rgba(201, 162, 39, 0.1)',
                         border: '1px solid rgba(201, 162, 39, 0.25)',
                         borderRadius: 100,
-                        padding: '2px 8px',
+                        padding: '2px 7px',
                         fontWeight: 600,
+                        flexShrink: 0,
                       }}
                     >
                       {study.industryTag}
                     </span>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
                     <Link
                       to={`/case-studies/${study.slug}`}
                       style={{
                         color: '#A1A1AA',
-                        fontSize: 12.5,
+                        fontSize: 12,
                         fontWeight: 600,
                         textDecoration: 'none',
                         display: 'inline-flex',
@@ -250,17 +263,17 @@ export default function Portfolio() {
                         rel="noopener noreferrer"
                         className="button-white"
                         style={{
-                          padding: '6px 14px',
+                          padding: '5px 12px',
                           borderRadius: 100,
-                          fontSize: 12,
+                          fontSize: 11.5,
                           fontWeight: 700,
                           textDecoration: 'none',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: 5,
+                          gap: 4,
                         }}
                       >
-                        Open Live <ExternalLink size={12} />
+                        Open Live <ExternalLink size={11} />
                       </a>
                     )}
                   </div>

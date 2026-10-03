@@ -284,7 +284,7 @@ export default function Services() {
           {/* 3D Coverflow Carousel Component */}
           <CoverflowCarousel
             items={CAROUSEL_SERVICES}
-            stageHeight={540}
+            stageHeight={520}
             renderItem={(svc, isActive) => (
               <div
                 style={{
@@ -293,51 +293,52 @@ export default function Services() {
                   border: isActive
                     ? '1.5px solid rgba(201, 162, 39, 0.7)'
                     : '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: 24,
+                  borderRadius: 22,
                   boxShadow: isActive
-                    ? '0 30px 70px rgba(0, 0, 0, 0.85), 0 0 40px rgba(201, 162, 39, 0.18)'
-                    : '0 20px 45px rgba(0, 0, 0, 0.6)',
-                  padding: 'clamp(22px, 3.5vw, 36px)',
+                    ? '0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(201, 162, 39, 0.18)'
+                    : '0 16px 40px rgba(0, 0, 0, 0.6)',
+                  padding: 'clamp(16px, 3.5vw, 32px)',
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: 16,
+                  gap: 'clamp(10px, 2vw, 16px)',
                   backdropFilter: 'blur(20px)',
                   transition: 'all 0.3s ease',
                   position: 'relative',
                   overflow: 'hidden',
+                  minHeight: 'min-content',
                 }}
               >
                 {/* Top Badge & Metric Row */}
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
                   <div
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: 8,
+                      gap: 6,
                       background: 'rgba(201, 162, 39, 0.1)',
                       border: '1px solid rgba(201, 162, 39, 0.3)',
                       borderRadius: 100,
-                      padding: '5px 14px',
+                      padding: '4px 12px',
                       color: 'var(--color-gold, #C9A227)',
-                      fontSize: 12,
+                      fontSize: 11.5,
                       fontWeight: 700,
-                      letterSpacing: '0.08em',
+                      letterSpacing: '0.06em',
                       textTransform: 'uppercase',
                     }}
                   >
-                    <span style={{ fontSize: 14 }}>{svc.icon}</span>
+                    <span style={{ fontSize: 13 }}>{svc.icon}</span>
                     <span>{svc.badge}</span>
                   </div>
 
                   <span
                     style={{
-                      fontSize: 11,
+                      fontSize: 10.5,
                       fontWeight: 700,
-                      letterSpacing: '0.12em',
+                      letterSpacing: '0.1em',
                       textTransform: 'uppercase',
                       color: '#E4E4E7',
                       background: 'rgba(255, 255, 255, 0.06)',
-                      padding: '4px 10px',
+                      padding: '3px 8px',
                       borderRadius: 6,
                       border: '1px solid rgba(255, 255, 255, 0.08)',
                     }}
@@ -351,20 +352,20 @@ export default function Services() {
                   <h3
                     style={{
                       fontFamily: 'var(--font-heading)',
-                      fontSize: 'clamp(22px, 2.5vw, 28px)',
+                      fontSize: 'clamp(18px, 3.5vw, 26px)',
                       color: '#FFFFFF',
                       fontWeight: 700,
-                      lineHeight: 1.2,
-                      margin: '4px 0 10px',
+                      lineHeight: 1.22,
+                      margin: '2px 0 8px',
                     }}
                   >
                     {svc.title}
                   </h3>
                   <p
                     style={{
-                      fontSize: 14.5,
+                      fontSize: 'clamp(13px, 2vw, 14.5px)',
                       color: '#A1A1AA',
-                      lineHeight: 1.65,
+                      lineHeight: 1.6,
                       margin: 0,
                     }}
                   >
@@ -373,13 +374,13 @@ export default function Services() {
                 </div>
 
                 {/* Feature Chips / Pills */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {svc.chips.map((chip) => (
                     <span
                       key={chip}
                       style={{
-                        fontSize: 12,
-                        padding: '5px 12px',
+                        fontSize: 'clamp(10.5px, 1.8vw, 11.5px)',
+                        padding: '3px 10px',
                         borderRadius: 100,
                         background: 'rgba(255, 255, 255, 0.04)',
                         border: '1px solid rgba(201, 162, 39, 0.2)',
@@ -392,13 +393,13 @@ export default function Services() {
                   ))}
                 </div>
 
-                {/* Tiered Pricing Boxes (Matching Video Layout) */}
+                {/* Tiered Pricing Boxes (Uniform 3-Column Grid on all screen sizes) */}
                 <div
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
-                    gap: 10,
-                    marginTop: 4,
+                    gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+                    gap: 'clamp(6px, 1.5vw, 10px)',
+                    marginTop: 2,
                   }}
                 >
                   {svc.prices.map((p) => (
@@ -407,19 +408,24 @@ export default function Services() {
                       style={{
                         background: 'rgba(201, 162, 39, 0.05)',
                         border: '1px solid rgba(201, 162, 39, 0.25)',
-                        borderRadius: 12,
-                        padding: '10px 12px',
+                        borderRadius: 10,
+                        padding: 'clamp(6px, 1.5vw, 10px) clamp(6px, 1.5vw, 10px)',
                         textAlign: 'left',
                         backdropFilter: 'blur(8px)',
+                        minWidth: 0,
+                        overflow: 'hidden',
                       }}
                     >
                       <small
                         style={{
                           display: 'block',
-                          fontSize: 11,
+                          fontSize: 'clamp(9.5px, 2vw, 11px)',
                           color: '#A1A1AA',
                           fontWeight: 500,
-                          lineHeight: 1.3,
+                          lineHeight: 1.25,
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
                         }}
                       >
                         {p.tier}
@@ -427,12 +433,15 @@ export default function Services() {
                       <b
                         style={{
                           display: 'block',
-                          fontSize: 'clamp(14px, 1.3vw, 16px)',
+                          fontSize: 'clamp(12px, 2.5vw, 15px)',
                           color: 'var(--color-gold, #C9A227)',
-                          marginTop: 4,
+                          marginTop: 3,
                           fontFamily: 'var(--font-heading)',
                           fontWeight: 700,
-                          letterSpacing: '-0.01em',
+                          letterSpacing: '-0.02em',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
                         }}
                       >
                         {p.price}
