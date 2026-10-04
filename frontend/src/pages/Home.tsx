@@ -82,6 +82,22 @@ const processSteps = [
 // ── PRD Section 1.4: Flagship Featured Projects ──
 const projects = [
   {
+    title: 'AI UGC Video Ads Engine',
+    slug: 'ai-ugc-video-ads',
+    industry: 'AI UGC Ads',
+    metric: '<24h Batch · 3.8x ROAS',
+    liveUrl: 'https://youtube.com/shorts/-Nhiev2KZAY',
+    image: 'https://img.youtube.com/vi/-Nhiev2KZAY/hqdefault.jpg',
+  },
+  {
+    title: 'AI UGC Multi-Hook Engine',
+    slug: 'ai-ugc-creative-engine',
+    industry: 'AI UGC Ads',
+    metric: '15 Angles · -34% CAC',
+    liveUrl: 'https://youtube.com/shorts/XnahfQplBkA',
+    image: 'https://img.youtube.com/vi/XnahfQplBkA/hqdefault.jpg',
+  },
+  {
     title: 'Aurevia Health',
     slug: 'aurevia-health',
     industry: 'Healthcare & Clinical',
@@ -855,52 +871,66 @@ export default function Home() {
                   transition: 'all 0.3s ease',
                 }}
               >
-                {/* Full Live Website Preview of the provided link */}
-                <div style={{ width: '100%', height: 420, position: 'relative' }}>
+                {/* Full Live Website Preview with Responsive Aspect/Height */}
+                <div style={{ width: '100%', height: 'clamp(230px, 45vw, 420px)', position: 'relative' }}>
                   <ProjectLivePreview
                     liveUrl={project.liveUrl}
                     title={project.title}
                     industryTag={project.industry}
-                    height={420}
+                    height="100%"
                     previewImage={project.image}
+                    isActiveCard={isActive}
                   />
                 </div>
 
                 {/* Sleek Minimal Bottom Bar */}
                 <div
                   style={{
-                    padding: '12px 20px',
+                    padding: 'clamp(10px, 2vw, 14px) clamp(12px, 2.5vw, 20px)',
                     background: 'rgba(15, 15, 20, 0.98)',
                     borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: 12,
+                    gap: 10,
+                    flexWrap: 'wrap',
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <span style={{ fontSize: 15, fontWeight: 700, color: '#FFFFFF' }}>{project.title}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
                     <span
                       style={{
-                        fontSize: 11,
+                        fontSize: 'clamp(13px, 2vw, 15px)',
+                        fontWeight: 700,
+                        color: '#FFFFFF',
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                      }}
+                    >
+                      {project.title}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 10.5,
                         color: 'var(--color-gold, #C9A227)',
                         background: 'rgba(201, 162, 39, 0.1)',
                         border: '1px solid rgba(201, 162, 39, 0.25)',
                         borderRadius: 100,
-                        padding: '2px 8px',
+                        padding: '2px 7px',
                         fontWeight: 600,
+                        flexShrink: 0,
                       }}
                     >
                       {project.industry}
                     </span>
                   </div>
 
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
                     <Link
                       to={`/case-studies/${project.slug}`}
                       style={{
                         color: '#A1A1AA',
-                        fontSize: 12.5,
+                        fontSize: 12,
                         fontWeight: 600,
                         textDecoration: 'none',
                         display: 'inline-flex',
@@ -921,17 +951,21 @@ export default function Home() {
                         rel="noopener noreferrer"
                         className="button-white"
                         style={{
-                          padding: '6px 14px',
+                          padding: '5px 12px',
                           borderRadius: 100,
-                          fontSize: 12,
+                          fontSize: 11.5,
                           fontWeight: 700,
                           textDecoration: 'none',
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: 5,
+                          gap: 4,
                         }}
                       >
-                        Open Live <ExternalLink size={12} />
+                        {project.liveUrl.includes('youtube') || project.liveUrl.includes('youtu.be') ? (
+                          <>Watch Video <ExternalLink size={11} /></>
+                        ) : (
+                          <>Open Live <ExternalLink size={11} /></>
+                        )}
                       </a>
                     )}
                   </div>

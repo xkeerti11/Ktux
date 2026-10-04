@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ExternalLink, Globe, Maximize2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ExternalLink, Globe, Play, Video, RotateCcw } from 'lucide-react';
 
 interface ProjectLivePreviewProps {
   liveUrl?: string;
@@ -8,6 +8,19 @@ interface ProjectLivePreviewProps {
   height?: number | string;
   interactive?: boolean;
   previewImage?: string;
+  isActiveCard?: boolean;
+}
+
+// Extracts YouTube video ID from standard watch, share, or shorts URLs
+function extractYouTubeId(url?: string): string | null {
+  if (!url) return null;
+  const shortsMatch = url.match(/youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/);
+  if (shortsMatch) return shortsMatch[1];
+  const watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+  if (watchMatch) return watchMatch[1];
+  const beMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]+)/);
+  if (beMatch) return beMatch[1];
+  return null;
 }
 
 export function ProjectLivePreview({
@@ -17,16 +30,40 @@ export function ProjectLivePreview({
   height = 280,
   interactive = false,
   previewImage,
+  isActiveCard = true,
 }: ProjectLivePreviewProps) {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const [iframeError, setIframeError] = useState(false);
+  const [isPlayingVideo, setIsPlayingVideo] = useState(false);
 
-  // Extract clean domain for display
-  const domain = liveUrl ? liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '') : '';
+  // Automatically STOP video playback when user switches to another card
+  useEffect(() => {
+    if (!isActiveCard) {
+      setIsPlayingVideo(false);
+    }
+  }, [isActiveCard]);
+
+  // Reset playback if liveUrl changes
+  useEffect(() => {
+    setIsPlayingVideo(false);
+  }, [liveUrl]);
+
+  // Extract clean domain or video path for display
+  const youtubeId = extractYouTubeId(liveUrl);
+  const isYouTube = Boolean(youtubeId);
+
+  const domain = liveUrl
+    ? isYouTube
+      ? `youtube.com/shorts/${youtubeId}`
+      : liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')
+    : '';
+
+  // YouTube thumbnail fallback
+  const resolvedPoster = previewImage || (youtubeId ? `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg` : '');
 
   // ChatSphere or known X-Frame restricted domains use high-res UI preview
   const isXFrameRestricted = domain.includes('chatsphere');
-  const showFallbackImage = isXFrameRestricted || iframeError;
+  const showFallbackImage = !isYouTube && (isXFrameRestricted || iframeError);
 
   return (
     <div
@@ -80,7 +117,11 @@ export function ProjectLivePreview({
               whiteSpace: 'nowrap',
             }}
           >
-            <Globe size={13} style={{ color: '#10B981', flexShrink: 0 }} />
+            {isYouTube ? (
+              <Video size={13} style={{ color: '#EF4444', flexShrink: 0 }} />
+            ) : (
+              <Globe size={13} style={{ color: '#10B981', flexShrink: 0 }} />
+            )}
             <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontWeight: 500 }}>
               {domain}
             </span>
@@ -89,8 +130,25 @@ export function ProjectLivePreview({
 
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-            <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#10B981' }} />
-            <span style={{ fontSize: 11, color: '#10B981', fontWeight: 700 }}>LIVE</span>
+            <span
+              style={{
+                width: 7,
+                height: 7,
+                borderRadius: '50%',
+                background: isYouTube ? '#EF4444' : '#10B981',
+                boxShadow: isYouTube ? '0 0 8px #EF4444' : '0 0 8px #10B981',
+              }}
+            />
+            <span
+              style={{
+                fontSize: 11,
+                color: isYouTube ? '#F87171' : '#10B981',
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+              }}
+            >
+              {isYouTube ? 'AI UGC DEMO' : 'LIVE'}
+            </span>
           </div>
           {liveUrl && (
             <button
@@ -100,7 +158,7 @@ export function ProjectLivePreview({
                 e.stopPropagation();
                 window.open(liveUrl, '_blank', 'noreferrer,noopener');
               }}
-              title="Open full site in new tab"
+              title={isYouTube ? 'Watch on YouTube' : 'Open full site in new tab'}
               style={{
                 background: 'transparent',
                 border: 'none',
@@ -128,11 +186,158 @@ export function ProjectLivePreview({
           height: 'calc(100% - 38px)',
           position: 'relative',
           overflow: 'hidden',
-          background: '#09090B',
+          background: '#050507',
         }}
       >
-        {/* Full Interactive Case Study Detail View */}
-        {interactive ? (
+        {/* CASE A: YouTube Video / Shorts Embed */}
+        {isYouTube ? (
+          interactive || isPlayingVideo ? (
+            <div style={{ width: '100%', height: '100%', position: 'relative', background: '#000000' }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
+                title={`${title} AI UGC Video Demo`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none',
+                  background: '#000000',
+                  display: 'block',
+                }}
+              />
+              {/* Reset to Poster button if in carousel */}
+              {!interactive && (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsPlayingVideo(false);
+                  }}
+                  title="Close video preview"
+                  style={{
+                    position: 'absolute',
+                    top: 10,
+                    right: 10,
+                    background: 'rgba(12, 12, 16, 0.85)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    borderRadius: 999,
+                    color: '#FAFAF8',
+                    padding: '4px 10px',
+                    fontSize: 11,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 5,
+                    cursor: 'pointer',
+                    zIndex: 10,
+                    backdropFilter: 'blur(8px)',
+                  }}
+                >
+                  <RotateCcw size={12} /> Close
+                </button>
+              )}
+            </div>
+          ) : (
+            /* YouTube Video Poster with Luxury Play Button Overlay */
+            <div
+              style={{
+                width: '100%',
+                height: '100%',
+                position: 'relative',
+                overflow: 'hidden',
+                background: '#000000',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              {resolvedPoster && (
+                <img
+                  src={resolvedPoster}
+                  alt={`${title} Video Thumbnail`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    filter: 'brightness(0.75)',
+                    transition: 'transform 0.4s ease, filter 0.4s ease',
+                  }}
+                />
+              )}
+
+              {/* Gradient Scrim */}
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'radial-gradient(circle at center, rgba(0,0,0,0.2) 0%, rgba(9,9,11,0.78) 100%)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 14,
+                  padding: 20,
+                }}
+              >
+                {/* Gold Luxury Play Button */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsPlayingVideo(true);
+                  }}
+                  style={{
+                    width: 64,
+                    height: 64,
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #F0D060, #C9A227)',
+                    border: '2px solid rgba(255, 255, 255, 0.4)',
+                    color: '#09090B',
+                    display: 'grid',
+                    placeItems: 'center',
+                    cursor: 'pointer',
+                    boxShadow: '0 0 30px rgba(201, 162, 39, 0.55), 0 8px 24px rgba(0, 0, 0, 0.7)',
+                    transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.boxShadow =
+                      '0 0 40px rgba(201, 162, 39, 0.8), 0 10px 30px rgba(0, 0, 0, 0.8)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                    e.currentTarget.style.boxShadow =
+                      '0 0 30px rgba(201, 162, 39, 0.55), 0 8px 24px rgba(0, 0, 0, 0.7)';
+                  }}
+                  aria-label="Play AI UGC Video Demo"
+                >
+                  <Play size={26} fill="#09090B" style={{ marginLeft: 3 }} />
+                </button>
+
+                <div style={{ textAlign: 'center' }}>
+                  <span
+                    style={{
+                      display: 'inline-block',
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: '#FFFFFF',
+                      letterSpacing: '0.04em',
+                      background: 'rgba(0, 0, 0, 0.65)',
+                      padding: '4px 14px',
+                      borderRadius: 100,
+                      border: '1px solid rgba(201, 162, 39, 0.35)',
+                      backdropFilter: 'blur(10px)',
+                    }}
+                  >
+                    Watch AI UGC Video Demo
+                  </span>
+                </div>
+              </div>
+            </div>
+          )
+        ) : interactive ? (
+          /* CASE B: Full Interactive Case Study Detail View (Websites) */
           !showFallbackImage ? (
             <iframe
               src={liveUrl}
@@ -208,7 +413,7 @@ export function ProjectLivePreview({
             </div>
           )
         ) : (
-          /* Card View (Portfolio / Homepage) */
+          /* CASE C: Card View for Standard Websites (Portfolio / Homepage) */
           !showFallbackImage ? (
             <div
               style={{

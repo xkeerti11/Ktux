@@ -23,6 +23,148 @@ export interface ExtendedCaseStudy extends CaseStudy {
 
 export const CASE_STUDIES_DATA: ExtendedCaseStudy[] = [
   {
+    _id: 'ai-ugc-video-ads',
+    slug: 'ai-ugc-video-ads',
+    title: 'AI UGC Video Ads Engine',
+    tagline: 'Autonomous Generative AI UGC Video Pipeline & Ad Creative Engine',
+    industryTag: 'AI UGC Ads',
+    role: 'Lead AI Engineer & Creative Automation Architect',
+    projectType: 'Generative AI Video Production Engine',
+    liveUrl: 'https://youtube.com/shorts/-Nhiev2KZAY',
+    overview:
+      'The AI UGC Video Ads Engine is an automated video production system engineered to turn raw product messaging into high-converting, scroll-stopping UGC video ads for Meta, TikTok, and YouTube Shorts. It automates avatar acting, voice cloning, multi-hook variations, and kinetic subtitles with sub-24h delivery.',
+    challenge:
+      'Traditional UGC video production is slow, expensive (₹15,000–₹35,000 per video), and requires coordinating with creators, shipping product samples, and waiting weeks. Ad fatigue demands fresh hook variations every few days, making manual creator workflows unsustainable for high-growth brands.',
+    solution:
+      'Engineered an end-to-end generative video pipeline combining deep learning video synthesis, ElevenLabs vocal inflection cloning, automated Whisper dynamic subtitles, multi-hook script generator algorithms, and automated FFmpeg/Remotion assembly for high-ROAS creative testing.',
+    results: [
+      { label: 'Creative Turnaround', value: '< 24 Hours' },
+      { label: 'Production Cost', value: '70% Lower Cost' },
+      { label: 'Hook Variations', value: '10+ per Batch' },
+      { label: 'Target Ad ROAS', value: '3.8x – 4.5x' },
+    ],
+    images: ['https://img.youtube.com/vi/-Nhiev2KZAY/hqdefault.jpg'],
+    techStack: [
+      'Generative AI Video',
+      'ElevenLabs Voice Cloning',
+      'Whisper Subtitle Engine',
+      'Runway Gen-3 / Sora AI',
+      'FFmpeg Automation Pipeline',
+      'Remotion Video Engine',
+      'Meta Graph Ads API',
+      'Python & Node.js',
+    ],
+    clientName: 'D2C & E-Commerce Growth Brands',
+    clientReview:
+      'KTUX delivered 15 high-converting AI UGC ad variations within 24 hours. Our cost-per-acquisition dropped by 34% in the first week.',
+    published: true,
+    featureSections: [
+      {
+        title: '🎬 Multi-Hook Creative Testing Engine',
+        description: 'Engineered for direct-response performance advertising and eliminating creative fatigue.',
+        items: [
+          'Dynamic 3-Second Hook Generation: Generates 5–10 distinct hook angles (pain-point callout, curiosity gap, demonstration, social proof) for every creative.',
+          'Multi-Avatar Roster: Realistic avatar performances featuring diverse demographics, native accents, and authentic micro-expressions.',
+          'Format Optimization: Automated rendering across 9:16 vertical (Shorts/Reels/TikTok) and 1:1 feed aspect ratios.',
+        ],
+      },
+      {
+        title: '🎙️ Hyper-Realistic Voice & Kinetic Captions',
+        description: 'Audio and typography engineered to maximize watch time and sound-off comprehension.',
+        items: [
+          'ElevenLabs Voice Inflection: Human-like vocal pacing with natural breathing pauses, emotional emphasis, and conversational cadence.',
+          'Whisper Kinetic Subtitles: High-CTR bold captions synchronized down to the millisecond with custom brand colors and highlight effects.',
+          'Background Audio Layering: Automated royalty-free trending background music ducked automatically under vocal tracks.',
+        ],
+      },
+      {
+        title: '⚡ Scalable Production & Fast Delivery',
+        description: 'From product brief to deployment-ready video ads in less than 24 hours.',
+        items: [
+          'Sub-24h Batch Delivery: Ship new batches of creative variations weekly to scale winning ad sets without creator delays.',
+          'Commercial Licensing Rights: Full worldwide commercial and paid advertising usage rights for all generated creative assets.',
+          'Direct Meta & TikTok Export: Ready-to-upload high bitrate MP4 files compliant with all platform advertising guidelines.',
+        ],
+      },
+    ],
+    techMatrix: [
+      { layer: 'Generative Video', technologies: 'Runway Gen-3, Sora AI, Custom Avatar Diffusion Models' },
+      { layer: 'Voice & Audio', technologies: 'ElevenLabs Voice Synthesis, Audio Ducking, Studio Master EQ' },
+      { layer: 'Subtitles & Motion', technologies: 'OpenAI Whisper, Remotion React Video, Kinetic Typography' },
+      { layer: 'Pipeline Automation', technologies: 'Python Async, Node.js Worker Queues, FFmpeg Encoding' },
+      { layer: 'Platform Targeting', technologies: 'Meta Ads Manager, TikTok Ads, YouTube Shorts API' },
+    ],
+    architectureFlow: `[ Product Brief & Target Angle ] 
+        │
+        ├── ✍️ Multi-Hook Script Engine (5-10 Angles)
+        │
+        ├── 🤖 Photorealistic Avatar & ElevenLabs Voice Pipeline
+        │
+        ├── ✂️ Remotion + FFmpeg Video Composition & Captions
+        │
+        └── 🚀 9:16 Vertical Video Output (Meta Ads / TikTok / Shorts)`,
+    resumePoints: [
+      'Architected an autonomous AI UGC video ads creation pipeline generating multi-hook video variations in under 24 hours.',
+      'Integrated ElevenLabs neural speech synthesis with automated Whisper kinetic caption rendering for maximum retention.',
+      'Engineered programmatic Remotion/FFmpeg rendering infrastructure enabling high-throughput creative batch testing.',
+      'Achieved a 70% reduction in production costs compared to traditional agency creator shoots with 3.8x+ ROAS benchmarks.',
+    ],
+  },
+  {
+    _id: 'ai-ugc-creative-engine',
+    slug: 'ai-ugc-creative-engine',
+    title: 'AI UGC Multi-Hook Engine',
+    tagline: 'High-Converting Viral UGC Ad Variation Pipeline for Meta & TikTok',
+    industryTag: 'AI UGC Ads',
+    role: 'Lead AI Engineer & Creative Automation Architect',
+    projectType: 'Generative AI Video Production Engine',
+    liveUrl: 'https://youtube.com/shorts/XnahfQplBkA',
+    overview:
+      'High-velocity AI UGC viral video testing engine that generates multi-angle hooks, authentic conversational delivery, and high-CTR typography to test product angles at 10x lower cost than traditional creator agencies.',
+    challenge:
+      'Brands struggle to find winning ad creatives on Meta and TikTok without spending tens of thousands on creator commissions, studio rentals, and prolonged editing cycles.',
+    solution:
+      'Deployed a rapid AI UGC testing framework that generates 10+ hook and angle variations per batch with photorealistic actors, studio-grade cloned audio, and instant vertical formatting.',
+    results: [
+      { label: 'Creative Testing Speed', value: '10x Faster' },
+      { label: 'Cost Per Acquisition', value: '-34% CAC' },
+      { label: 'Hook Variations', value: '15 Angles' },
+      { label: 'Ad Engagement', value: '+48% CTR' },
+    ],
+    images: ['https://img.youtube.com/vi/XnahfQplBkA/hqdefault.jpg'],
+    techStack: [
+      'Generative AI Video',
+      'ElevenLabs Speech',
+      'Whisper AI Captions',
+      'Remotion',
+      'FFmpeg Pipeline',
+      'Meta Graph API',
+      'TikTok Ads API',
+    ],
+    clientName: 'Viral E-Commerce Brands',
+    clientReview:
+      'Having 10+ high quality AI UGC variations ready in 24 hours completely solved our Meta ad fatigue problem.',
+    published: true,
+    featureSections: [
+      {
+        title: '🎯 Viral Direct-Response Angles',
+        description: 'Optimized for high-energy scroll stopping and immediate product demonstration.',
+        items: [
+          'Curiosity & Demonstration Hooks: High-impact first 3 seconds designed to stop user scroll.',
+          'Dynamic Accent & Vocal Pacing: Tailored vocal tone matching product target demographic.',
+          'Clean Multi-Platform Aspect Ratios: Rendered natively for vertical feeds.',
+        ],
+      },
+    ],
+    techMatrix: [
+      { layer: 'Generative Engine', technologies: 'Diffusion Avatars, ElevenLabs Synthesis' },
+      { layer: 'Rendering Pipeline', technologies: 'Remotion, FFmpeg Cloud Workers' },
+    ],
+    resumePoints: [
+      'Built automated viral AI UGC ad variant generation system scaling client ad spend profitably.',
+    ],
+  },
+  {
     _id: 'aurevia-health',
     slug: 'aurevia-health',
     title: 'Aurevia Health',

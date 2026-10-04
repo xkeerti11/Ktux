@@ -192,6 +192,7 @@ export default function Portfolio() {
                     industryTag={study.industryTag}
                     height="100%"
                     previewImage={study.images?.[0]}
+                    isActiveCard={isActive}
                   />
                 </div>
 
@@ -273,7 +274,11 @@ export default function Portfolio() {
                           gap: 4,
                         }}
                       >
-                        Open Live <ExternalLink size={11} />
+                        {study.liveUrl.includes('youtube') || study.liveUrl.includes('youtu.be') ? (
+                          <>Watch Video <ExternalLink size={11} /></>
+                        ) : (
+                          <>Open Live <ExternalLink size={11} /></>
+                        )}
                       </a>
                     )}
                   </div>

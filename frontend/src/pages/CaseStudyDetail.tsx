@@ -214,7 +214,11 @@ export default function CaseStudyDetail() {
                       gap: 8,
                     }}
                   >
-                    Launch Live Demo <ExternalLink size={16} />
+                    {item.liveUrl.includes('youtube') || item.liveUrl.includes('youtu.be') ? (
+                      <>Watch YouTube Demo <ExternalLink size={16} /></>
+                    ) : (
+                      <>Launch Live Demo <ExternalLink size={16} /></>
+                    )}
                   </a>
                 )}
                 {item.githubUrl && (
