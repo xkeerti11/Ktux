@@ -15,25 +15,66 @@ export const helmetConfig: Parameters<typeof helmet>[0] = {
   crossOriginResourcePolicy: { policy: 'cross-origin' }
 };
 
-const allowedOrigins = env.NODE_ENV === 'development' || env.NODE_ENV === 'test'
-  ? ['http://localhost:5173']
-  : corsOrigins;
+export function isAllowedOrigin(origin?: string): boolean {
+  if (!origin) return true;
+  const cleanOrigin = origin.trim().replace(/\/$/, '');
+
+  // 1. Explicitly configured origins from env (CORS_ORIGINS and CLIENT_URL)
+  if (corsOrigins.some((allowed) => allowed.replace(/\/$/, '').toLowerCase() === cleanOrigin.toLowerCase())) {
+    return true;
+  }
+  if (env.CLIENT_URL && env.CLIENT_URL.replace(/\/$/, '').toLowerCase() === cleanOrigin.toLowerCase()) {
+    return true;
+  }
+
+  // 2. Production domains: ktux.me and all subdomains (www.ktux.me, etc.)
+  if (/^https?:\/\/([a-z0-9-]+\.)*ktux\.me(:\d+)?$/i.test(cleanOrigin)) {
+    return true;
+  }
+
+  // 3. Render / Netlify / Vercel hosting domains
+  if (/^https?:\/\/([a-z0-9-]+\.)*(onrender\.com|netlify\.app|vercel\.app)(:\d+)?$/i.test(cleanOrigin)) {
+    return true;
+  }
+
+  // 4. Local development / test origins
+  if (/^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(cleanOrigin)) {
+    return true;
+  }
+
+  return false;
+}
 
 export const corsConfig: CorsOptions = {
   origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+    if (isAllowedOrigin(origin)) return callback(null, true);
+    logger.warn('CORS request rejected for origin', { origin });
     return callback(new ApiError(403, 'CORS_ORIGIN_NOT_ALLOWED', 'Origin is not allowed by CORS'));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: [
     'Content-Type',
+    'content-type',
     'Authorization',
+    'authorization',
     'X-Request-Id',
+    'x-request-id',
     'Idempotency-Key',
+    'idempotency-key',
     'X-CSRF-Token',
-    'X-Zapier-Webhook-Secret'
-  ]
+    'x-csrf-token',
+    'X-Zapier-Webhook-Secret',
+    'Accept',
+    'accept',
+    'X-Requested-With',
+    'x-requested-with',
+    'sentry-trace',
+    'baggage'
+  ],
+  exposedHeaders: ['X-Request-Id', 'X-CSRF-Token'],
+  maxAge: 86400,
+  optionsSuccessStatus: 204
 };
 
 export const mongoSanitizeConfig = {
@@ -82,7 +123,9 @@ export const customSecurityHeaders: RequestHandler = (_req, res, next) => {
 };
 
 export function configureSecurity(app: Express): void {
-  if (env.TRUST_PROXY) app.set('trust proxy', 1);
+  if (env.TRUST_PROXY || env.NODE_ENV === 'production' || process.env.RENDER) {
+    app.set('trust proxy', 1);
+  }
   app.use(helmet(helmetConfig));
   app.use(cors(corsConfig));
   app.use(express.json({ limit: '100kb' }));

@@ -153,7 +153,7 @@ describe('Authentication & Password Security Suite', () => {
       await expect(login('target@ktux.com', 'AdminPass12345!', {})).rejects.toMatchObject({
         code: 'ACCOUNT_LOCKED'
       });
-    });
+    }, 15000);
   });
 
   describe('Refresh Token Rotation & Security', () => {

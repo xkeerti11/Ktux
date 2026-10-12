@@ -22,7 +22,7 @@ const baseSchema = z.object({
   JWT_ACCESS_EXPIRES_IN: z.string().default('15m'),
   JWT_REFRESH_EXPIRES_IN: z.string().default('7d'),
   CLIENT_URL: z.string().url().default('http://localhost:5173'),
-  CORS_ORIGINS: z.string().default('http://localhost:5173'),
+  CORS_ORIGINS: z.string().default('https://www.ktux.me,https://ktux.me,http://localhost:5173'),
   COOKIE_SECURE: booleanFromEnv.default(false),
   COOKIE_DOMAIN: z.string().optional(),
   TRUST_PROXY: booleanFromEnv.default(false),

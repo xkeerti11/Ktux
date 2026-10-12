@@ -44,6 +44,24 @@ describe('Security & Protection Suite', () => {
     expect(response.headers['access-control-allow-credentials']).toBe('true');
   });
 
+  it('allows production custom domain https://www.ktux.me and https://ktux.me with preflight support', async () => {
+    for (const origin of ['https://www.ktux.me', 'https://ktux.me']) {
+      const preflight = await request(app)
+        .options('/api/v1/ai/chat')
+        .set('Origin', origin)
+        .set('Access-Control-Request-Method', 'POST')
+        .set('Access-Control-Request-Headers', 'Content-Type, X-CSRF-Token');
+      expect([200, 204]).toContain(preflight.status);
+      expect(preflight.headers['access-control-allow-origin']).toBe(origin);
+      expect(preflight.headers['access-control-allow-credentials']).toBe('true');
+
+      const res = await request(app).get('/health').set('Origin', origin);
+      expect(res.status).toBe(200);
+      expect(res.headers['access-control-allow-origin']).toBe(origin);
+      expect(res.headers['access-control-allow-credentials']).toBe('true');
+    }
+  });
+
   it('enforces the password policy and bcrypt hashing', async () => {
     expect(validatePasswordStrength('weak').isStrong).toBe(false);
     const password = 'StrongPassword!123';

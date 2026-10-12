@@ -13,12 +13,15 @@ const cookieDomain = env.COOKIE_DOMAIN &&
   ? env.COOKIE_DOMAIN
   : undefined;
 
+const isSecureCookie = env.COOKIE_SECURE || env.NODE_ENV === 'production';
+const sameSitePolicy = isSecureCookie ? (cookieDomain ? 'strict' : 'none') : 'lax';
+
 export const ensureCsrfCookie: RequestHandler = (req, res, next) => {
   if (!req.cookies?.[CSRF_COOKIE]) {
     res.cookie(CSRF_COOKIE, crypto.randomBytes(32).toString('hex'), {
       httpOnly: false,
-      secure: env.COOKIE_SECURE,
-      sameSite: env.COOKIE_SECURE ? 'strict' : 'lax',
+      secure: isSecureCookie,
+      sameSite: sameSitePolicy,
       domain: cookieDomain,
       maxAge: 7 * 24 * 60 * 60 * 1000,
       path: '/api/v1'
@@ -30,8 +33,8 @@ export const ensureCsrfCookie: RequestHandler = (req, res, next) => {
 export function csrfToken(res: Response, token: string): void {
   res.cookie(CSRF_COOKIE, token, {
     httpOnly: false,
-    secure: env.COOKIE_SECURE,
-    sameSite: env.COOKIE_SECURE ? 'strict' : 'lax',
+    secure: isSecureCookie,
+    sameSite: sameSitePolicy,
     domain: cookieDomain,
     maxAge: 7 * 24 * 60 * 60 * 1000,
     path: '/api/v1'
