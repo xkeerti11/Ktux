@@ -39,8 +39,8 @@ export const authLimiter = rateLimit({
 });
 
 export const formLimiter = rateLimit({
-  windowMs: 60 * 60_000,
-  limit: 5,
+  windowMs: 15 * 60_000,
+  limit: 25,
   standardHeaders: 'draft-8',
   legacyHeaders: false,
   handler: rateLimitHandler

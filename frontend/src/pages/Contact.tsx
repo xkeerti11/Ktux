@@ -50,7 +50,11 @@ export default function Contact() {
   const mutation = useMutation({
     mutationFn: (data: ContactData) =>
       client.post('/leads', {
-        ...data,
+        name: data.name.trim(),
+        email: data.email.trim(),
+        phone: data.phone?.trim() || undefined,
+        company: data.company?.trim() || undefined,
+        message: data.message.trim(),
         budgetRange: selectedBudget,
         timeline: selectedTimeline,
         serviceInterested: selectedServices,
@@ -61,7 +65,14 @@ export default function Contact() {
       reset();
       toast.success('Message sent! Our founders will review and reply within 24 hours.');
     },
-    onError: () => toast.error('Something went wrong. Please try again or message us on WhatsApp.'),
+    onError: (error: any) => {
+      const serverMsg =
+        error?.response?.data?.error?.message ||
+        (error?.code === 'ECONNABORTED'
+          ? 'Server took too long to wake up. Please try again in a few moments.'
+          : undefined);
+      toast.error(serverMsg || 'Something went wrong. Please try again or message us on WhatsApp.');
+    },
   });
 
   const toggleService = (srv: string) => {

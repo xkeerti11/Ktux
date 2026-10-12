@@ -6,7 +6,7 @@ import { env } from '../env';
 export const client = axios.create({
   baseURL: env.VITE_API_BASE_URL + '/api/v1',
   withCredentials: true,
-  timeout: 10_000,
+  timeout: 30_000,
 });
 
 // Attach access token from memory and CSRF token from cookie to every request
