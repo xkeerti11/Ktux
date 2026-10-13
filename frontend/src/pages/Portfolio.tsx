@@ -20,6 +20,7 @@ function GithubIcon({ size = 16 }: { size?: number }) {
 
 const categories = [
   'All',
+  'AI UGC Ads',
   'Healthcare',
   'Education',
   'Real-Time & Social',

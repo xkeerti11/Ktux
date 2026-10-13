@@ -165,6 +165,106 @@ export const CASE_STUDIES_DATA: ExtendedCaseStudy[] = [
     ],
   },
   {
+    _id: 'ai-ugc-viral-demo',
+    slug: 'ai-ugc-viral-demo',
+    title: 'AI UGC Viral Ads Demo',
+    tagline: 'High-Retention Scroll-Stopping AI UGC Video Ad Creative',
+    industryTag: 'AI UGC Ads',
+    role: 'Lead AI Engineer & Creative Automation Architect',
+    projectType: 'Generative AI Video Production Engine',
+    liveUrl: 'https://youtube.com/shorts/g3Apo0GOGyY',
+    overview:
+      'High-converting viral AI UGC video demo engineered to capture attention in the first 3 seconds, dynamic pacing, photorealistic actor synthesis, and burned-in retention captions.',
+    challenge:
+      'Capturing user attention in under 3 seconds in saturated social ad feeds while delivering clear value propositions without costly production sets.',
+    solution:
+      'Combined deep learning avatar synthesis, emotional inflection cloning, dynamic kinetic captions, and viral hook formulas.',
+    results: [
+      { label: 'Watch Time', value: '+62% Avg' },
+      { label: 'Click-Through Rate', value: '4.2x ROAS' },
+      { label: 'Turnaround', value: '< 24 Hours' },
+      { label: 'Cost Savings', value: '75% Lower' },
+    ],
+    images: ['https://img.youtube.com/vi/g3Apo0GOGyY/hqdefault.jpg'],
+    techStack: [
+      'Generative AI Video',
+      'ElevenLabs Audio',
+      'Whisper Subtitles',
+      'Remotion',
+      'FFmpeg Pipeline',
+      'Meta Graph Ads API',
+    ],
+    clientName: 'Direct-to-Consumer Growth Brands',
+    clientReview:
+      'The hook retention and visual clarity are incredible. These AI UGC ads consistently outperform creator shoots.',
+    published: true,
+    featureSections: [
+      {
+        title: '⚡ Instant Hook Retention',
+        description: 'Engineered specifically for short-form algorithms on YouTube Shorts and Instagram Reels.',
+        items: [
+          'First 3-Second Scroll Stopper: High energy opening hook delivering instant visual engagement.',
+          'Fluid Facial Gestures: Synchronized natural blinking, head movement, and conversational micro-expressions.',
+          'Dynamic Bold Captions: Burned-in animated typography keeping sound-off viewers engaged.',
+        ],
+      },
+    ],
+    techMatrix: [
+      { layer: 'Avatar & Voice', technologies: 'Neural Synthesis, ElevenLabs Studio' },
+      { layer: 'Compositing', technologies: 'Remotion React, FFmpeg Encoding' },
+    ],
+  },
+  {
+    _id: 'ai-ugc-commercial-demo',
+    slug: 'ai-ugc-commercial-demo',
+    title: 'AI UGC Commercial Demo',
+    tagline: 'Studio-Grade Photorealistic AI UGC Brand Commercial',
+    industryTag: 'AI UGC Ads',
+    role: 'Lead AI Engineer & Video Automation Director',
+    projectType: 'Generative AI Brand Video Production',
+    liveUrl: 'https://youtu.be/II53u_mYGTE',
+    overview:
+      'Cinematic AI UGC brand commercial demo featuring studio-grade lighting, lifelike avatar articulation, crystal-clear voice modulation, and direct product feature walkthroughs.',
+    challenge:
+      'High cost of commercial production shoots and difficulty updating video assets when product features evolve.',
+    solution:
+      'Automated video generation pipeline with script-to-screen AI rendering, multi-shot composition, dynamic background score, and master export.',
+    results: [
+      { label: 'Video Quality', value: '1080p HD' },
+      { label: 'Production Time', value: 'Under 48 Hours' },
+      { label: 'Creator Fees', value: 'Zero Overhead' },
+      { label: 'Conversion Lift', value: '+38% CV Rate' },
+    ],
+    images: ['https://img.youtube.com/vi/II53u_mYGTE/hqdefault.jpg'],
+    techStack: [
+      'Generative AI Video',
+      'ElevenLabs Voice Clones',
+      'Whisper Dynamic Captions',
+      'FFmpeg Compositor',
+      'Remotion Video',
+      'YouTube Shorts & Feed API',
+    ],
+    clientName: 'Global SaaS & E-Commerce Brands',
+    clientReview:
+      'Looks and sounds completely indistinguishable from high-end agency production at a fraction of the time and cost.',
+    published: true,
+    featureSections: [
+      {
+        title: '🎬 Commercial Storytelling Pipeline',
+        description: 'Complete brand narrative engineered for conversion and high trustworthiness.',
+        items: [
+          'Natural Product Endorsement: Scripted with conversational authenticity and clear value proposition.',
+          'Studio Master Audio: Pristine vocal acoustics with automated background sound ducking.',
+          'Platform Compatibility: Ready for YouTube, Meta Ads, LinkedIn, and website video embeds.',
+        ],
+      },
+    ],
+    techMatrix: [
+      { layer: 'Commercial Video', technologies: 'Diffusion Avatars, Multi-Angle Camera Synthesis' },
+      { layer: 'Audio & Mix', technologies: 'ElevenLabs Voice, Spectral Audio Polish' },
+    ],
+  },
+  {
     _id: 'aurevia-health',
     slug: 'aurevia-health',
     title: 'Aurevia Health',

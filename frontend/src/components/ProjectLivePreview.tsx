@@ -54,7 +54,7 @@ export function ProjectLivePreview({
 
   const domain = liveUrl
     ? isYouTube
-      ? `youtube.com/shorts/${youtubeId}`
+      ? (liveUrl.includes('/shorts/') ? `youtube.com/shorts/${youtubeId}` : `youtu.be/${youtubeId}`)
       : liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')
     : '';
 

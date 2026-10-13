@@ -98,6 +98,22 @@ const projects = [
     image: 'https://img.youtube.com/vi/XnahfQplBkA/hqdefault.jpg',
   },
   {
+    title: 'AI UGC Viral Ads Demo',
+    slug: 'ai-ugc-viral-demo',
+    industry: 'AI UGC Ads',
+    metric: 'Viral Hook · 4.2x ROAS',
+    liveUrl: 'https://youtube.com/shorts/g3Apo0GOGyY',
+    image: 'https://img.youtube.com/vi/g3Apo0GOGyY/hqdefault.jpg',
+  },
+  {
+    title: 'AI UGC Commercial Demo',
+    slug: 'ai-ugc-commercial-demo',
+    industry: 'AI UGC Ads',
+    metric: 'Studio Avatar · 60 FPS HD',
+    liveUrl: 'https://youtu.be/II53u_mYGTE',
+    image: 'https://img.youtube.com/vi/II53u_mYGTE/hqdefault.jpg',
+  },
+  {
     title: 'Aurevia Health',
     slug: 'aurevia-health',
     industry: 'Healthcare & Clinical',
