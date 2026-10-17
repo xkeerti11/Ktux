@@ -114,6 +114,14 @@ const projects = [
     image: 'https://img.youtube.com/vi/II53u_mYGTE/hqdefault.jpg',
   },
   {
+    title: 'AI UGC High-Conversion Hook',
+    slug: 'ai-ugc-conversion-hook',
+    industry: 'AI UGC Ads',
+    metric: 'Pattern Interrupt · +54% CTR',
+    liveUrl: 'https://youtube.com/shorts/5tZZ-aXtTdc',
+    image: 'https://img.youtube.com/vi/5tZZ-aXtTdc/hqdefault.jpg',
+  },
+  {
     title: 'Aurevia Health',
     slug: 'aurevia-health',
     industry: 'Healthcare & Clinical',

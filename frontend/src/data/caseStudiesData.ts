@@ -265,6 +265,56 @@ export const CASE_STUDIES_DATA: ExtendedCaseStudy[] = [
     ],
   },
   {
+    _id: 'ai-ugc-conversion-hook',
+    slug: 'ai-ugc-conversion-hook',
+    title: 'AI UGC High-Conversion Hook',
+    tagline: 'High-Retention Scroll-Stopping AI UGC Video Ad Creative',
+    industryTag: 'AI UGC Ads',
+    role: 'Lead AI Engineer & Creative Automation Architect',
+    projectType: 'Generative AI Video Production Engine',
+    liveUrl: 'https://youtube.com/shorts/5tZZ-aXtTdc',
+    overview:
+      'High-converting AI UGC short-form ad engineered with a pattern-interrupt hook, photorealistic avatar performance, and kinetic typography to maximize viewer retention and ROAS.',
+    challenge:
+      'Scaling direct-response creative volume across Meta and TikTok without creator delays, fatigue, or steep production budgets.',
+    solution:
+      'Automated generative video pipeline delivering high-converting video variations with natural cadence, expressive avatar performance, and sub-24h turnaround.',
+    results: [
+      { label: 'Hook Retention', value: '3-Sec Drop -42%' },
+      { label: 'Click-Through Rate', value: '+54% CTR' },
+      { label: 'Batch Turnaround', value: '< 24 Hours' },
+      { label: 'Target Ad ROAS', value: '4.5x Benchmark' },
+    ],
+    images: ['https://img.youtube.com/vi/5tZZ-aXtTdc/hqdefault.jpg'],
+    techStack: [
+      'Generative AI Video',
+      'ElevenLabs Voice Synthesis',
+      'Whisper AI Captions',
+      'Remotion Video Engine',
+      'FFmpeg Pipeline',
+      'Meta Graph Ads API',
+    ],
+    clientName: 'Direct-Response D2C Brands',
+    clientReview:
+      'The avatar gestures and vocal pacing are spot on. Immediate lift in CTR and lower customer acquisition costs.',
+    published: true,
+    featureSections: [
+      {
+        title: '⚡ Pattern-Interrupt Hook Design',
+        description: 'Engineered specifically for short-form feeds on YouTube Shorts, TikTok, and Instagram Reels.',
+        items: [
+          'First 3-Second Retention Trigger: Visual and auditory pattern interrupts to halt passive user scrolling.',
+          'Natural Conversational Flow: Studio-quality cloned vocal dynamics with authentic breathing and inflection.',
+          'Burned-In Kinetic Captions: Millisecond-synced animated text tailored for sound-off consumption.',
+        ],
+      },
+    ],
+    techMatrix: [
+      { layer: 'Avatar & Voice', technologies: 'Diffusion Avatars, ElevenLabs Synthesis' },
+      { layer: 'Rendering Engine', technologies: 'Remotion React, FFmpeg Cloud Pipeline' },
+    ],
+  },
+  {
     _id: 'aurevia-health',
     slug: 'aurevia-health',
     title: 'Aurevia Health',
